@@ -1,6 +1,7 @@
 package com.ccand99.webclient.envtemp.beans
 
 import org.springframework.http.HttpMethod
+import org.springframework.util.MultiValueMap
 import reactor.core.publisher.Mono
 
 /**
@@ -9,7 +10,7 @@ import reactor.core.publisher.Mono
 class MethodInfo{
     lateinit var uri : String
     lateinit var method: HttpMethod
-    var params: Map<String,Any>?= null
+    var params: MultiValueMap<String, String>?= null
     var body: Mono<*>?= null
 
     /**
@@ -29,6 +30,9 @@ class MethodInfo{
      *  返回对象的类型
      */
     lateinit var returnElementType: Class<*>
+
+    lateinit var returnContextType: Array<String>
+    lateinit var returnElementContextType: Array<String>
 
     override fun toString(): String {
         return "MethodInfo(uri='$uri', method=$method, params=$params, body=$body)"

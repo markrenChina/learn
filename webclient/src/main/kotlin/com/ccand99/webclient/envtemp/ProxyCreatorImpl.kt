@@ -3,9 +3,11 @@ package com.ccand99.webclient.envtemp
 import com.ccand99.webclient.envtemp.beans.MethodInfo
 import com.ccand99.webclient.envtemp.beans.ServerInfo
 import com.zhipuchina.loginserverc.envtemp.interfaces.ProxyCreator
+import com.zhipuchina.loginserverc.envtemp.interfaces.RestHandler
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpMethod
+import org.springframework.util.LinkedMultiValueMap
 import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
@@ -25,7 +27,7 @@ class ProxyCreatorImpl : ProxyCreator {
         val serverInfo = extractServerInfo(type)
         logger.info("serverInfo: $serverInfo")
         //给每一个代理类一个实现
-        val handler = WebClientRestHandler(serverInfo)
+        val handler: RestHandler = WebClientRestHandler(serverInfo)
 
         return Proxy.newProxyInstance(this.javaClass.classLoader, arrayOf(type), object : InvocationHandler {
             override fun invoke(proxy: Any?, method: Method, args: Array<out Any>?): Any {
@@ -73,12 +75,12 @@ class ProxyCreatorImpl : ProxyCreator {
             ) {
                 //得到调用的参数和body
                 val parameters = method.parameters
-                val params = LinkedHashMap<String, Any>()
+                val params = LinkedMultiValueMap<String, String>()
                 for (index in parameters.indices) {
                     //是否带@PathVariable
                     val aPath = parameters[index].getAnnotation(PathVariable::class.java)
                     aPath?.let {
-                        params[it.value] = args[index]
+                        params[it.value] = args[index].toString()
                     }
                     //是否带了requestBody
                     val aBody = parameters[index].getAnnotation(RequestBody::class.java)
@@ -101,18 +103,26 @@ class ProxyCreatorImpl : ProxyCreator {
                         is GetMapping -> {
                             methodInfo.uri = e.value[0]
                             methodInfo.method = HttpMethod.GET
+                            methodInfo.returnContextType = e.consumes
+                            methodInfo.returnElementContextType = e.produces
                         }
                         is PostMapping -> {
                             methodInfo.uri = e.value[0]
                             methodInfo.method = HttpMethod.POST
+                            methodInfo.returnContextType = e.consumes
+                            methodInfo.returnElementContextType = e.produces
                         }
                         is DeleteMapping -> {
                             methodInfo.uri = e.value[0]
                             methodInfo.method = HttpMethod.DELETE
+                            methodInfo.returnContextType = e.consumes
+                            methodInfo.returnElementContextType = e.produces
                         }
                         is PutMapping -> {
                             methodInfo.uri = e.value[0]
                             methodInfo.method = HttpMethod.PUT
+                            methodInfo.returnContextType = e.consumes
+                            methodInfo.returnElementContextType = e.produces
                         }
                     }
                 }
@@ -122,6 +132,7 @@ class ProxyCreatorImpl : ProxyCreator {
 
     /**
      * 提取服务器信息
+     * 返回一个对象而不是直接返回url。是为了以后扩展
      */
     private fun extractServerInfo(type: Class<*>): ServerInfo {
         return ServerInfo(type.getAnnotation(ApiServer::class.java).value)
