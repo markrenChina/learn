@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="webclient" />
         <module name="learn-reactor" />
+        <module name="r2dbc" />
       </profile>
       <profile name="Annotation profile for Unknown" enabled="true">
         <sourceOutputDir name="../../target/generated-sources/annotations" />
