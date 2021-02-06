@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Title</title>
+</head>
+<body>
+
+ <div id='app'>
+     <cpn2></cpn2>
+     <cpn2><span>1111</span></cpn2>
+     <cpn2><li>2222</li></cpn2>
+     <cpn2></cpn2>
+ </div>
+ </div>
+ </div>
+ </div>
+
+
+<template id="cpn2">
+  <div>
+    <h2>标题template</h2>
+    <p>内容1</p>
+    <slot><button>按钮</button></slot>
+</div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+    //注册组件
+    Vue.component("cpn2",{
+      template:"#cpn2"
+    })
+   const app = new Vue({
+     el: '#app',
+     data: {
+       message: 'hello world!'
+     }
+   })
+
+ </script>
+ </body>
+ </html>

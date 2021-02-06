@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Title</title>
+</head>
+<body>
+
+ <div id='app'>
+ {{message}}
+ </div>
+
+<script src="../js/vue.js"></script>
+<script>
+  new Promise((resolve)=>{
+    setTimeout(() => {
+      resolve("aaa");
+    }, 1000)
+  }).then(res=>{
+    console.log(res);
+    //自动包装promise
+    return res +" 111"
+  }).then(res => {
+    console.log(res);
+  })
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello world!'
+    }
+  })
+
+ </script>
+ </body>
+ </html>

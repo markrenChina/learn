@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Title</title>
+   <style>
+       .active{
+           color: #f00;
+       }
+   </style>
+</head>
+<body>
+
+ <div id='app'>
+     <img v-bind:src="url" alt="">
+     <img :src="url2" alt="">
+     <h2 :class="{active: isActive,line: isLine}">{{message}}</h2>
+     <button v-on:click="btnClick">点击</button>
+ </div>
+
+<script src="../js/vue.js"></script>
+<script>
+
+   const app = new Vue({
+     el: '#app',
+     data: {
+       message: 'hello world!',
+       url:"https://test.zhipu-china.com:20111/swiper/1.jpg",
+       url2:"https://test.zhipu-china.com:20111/swiper/2.jpg",
+       isActive:true,
+       isLine:true
+     },
+     methods:{
+         btnClick: function () {
+             this.isActive = !this.isActive
+         }
+     }
+   })
+
+ </script>
+ </body>
+ </html>

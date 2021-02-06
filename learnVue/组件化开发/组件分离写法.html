@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Title</title>
+</head>
+<body>
+
+ <div id='app'>
+     <my-cpn></my-cpn>
+
+     <cpn2></cpn2>
+ </div>
+
+<!-- 1 -->
+<script type="text/x-template" id="cpn">
+  <div>
+    <h2>标题script</h2>
+    <p>内容1</p>
+    <p>内容2</p>
+    <p>内容3</p>
+</div>
+</script>
+
+<!-- 2 -->
+<template id="cpn2">
+  <div>
+    <h2>标题template</h2>
+    <p>内容1</p>
+    <p>内容2</p>
+    <p>内容3</p>
+</div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+    //注册组件
+    Vue.component('my-cpn',{
+      template:"#cpn",
+    })
+    Vue.component("cpn2",{
+      template:"#cpn2"
+    })
+   const app = new Vue({
+     el: '#app',
+     data: {
+       message: 'hello world!'
+     }
+   })
+
+ </script>
+ </body>
+ </html>
