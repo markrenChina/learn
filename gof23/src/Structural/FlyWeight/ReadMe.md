@@ -15,4 +15,5 @@ FlyWeight （抽象）享元类，向外部提供对象内部状态，设置外�
 ConcreteFlyWeight 具体享元类 为内部状态提供成员变量进行存储
 
 UnsharedConcreteFlyWeight 非共享享元类
- 
+
+应用：各种池
