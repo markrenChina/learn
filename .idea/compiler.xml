@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="webclient" />
         <module name="learn-reactor" />
         <module name="r2dbc" />
+        <module name="webclient" />
+        <module name="taco-cloud" />
       </profile>
       <profile name="Annotation profile for Unknown" enabled="true">
         <sourceOutputDir name="../../target/generated-sources/annotations" />
@@ -26,6 +27,7 @@
       <module name="learn-reactor" options="-parameters" />
       <module name="r2dbc" options="-parameters" />
       <module name="r2dbc (1) (com.ccand99)" options="-parameters" />
+      <module name="taco-cloud" options="-parameters" />
       <module name="webclient" options="-parameters" />
     </option>
   </component>
