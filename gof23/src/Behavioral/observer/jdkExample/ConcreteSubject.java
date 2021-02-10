@@ -3,6 +3,7 @@ package observer.jdkExample;
 import java.util.Observable;
 
 //jdk建议观察者使用流（java.util.concurrent）的方式，此方法已弃用
+//详细见响应式学习文件夹
 public class ConcreteSubject extends Observable {
     private int state;
 
