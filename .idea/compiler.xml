@@ -19,6 +19,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="learn" target="11" />
       <module name="r2dbc (1) (com.ccand99)" target="11" />
     </bytecodeTargetLevel>
   </component>

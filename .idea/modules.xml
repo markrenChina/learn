@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/gof23/src/gof23.iml" filepath="$PROJECT_DIR$/gof23/src/gof23.iml" />
-      <module fileurl="file://$PROJECT_DIR$/kotlin/kotlin.iml" filepath="$PROJECT_DIR$/kotlin/kotlin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/learnVue/learnVue.iml" filepath="$PROJECT_DIR$/learnVue/learnVue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gof23/gof23.iml" filepath="$PROJECT_DIR$/gof23/gof23.iml" />
     </modules>
   </component>
 </project>
