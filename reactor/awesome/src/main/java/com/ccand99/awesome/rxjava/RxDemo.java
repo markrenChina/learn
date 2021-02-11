@@ -38,6 +38,7 @@ public class RxDemo {
 
         //3.0使用消费者（Consumer）对应Subscriber，后者设计接口跟我们写的RxObserver类似
         //onComplete 和onError 成为订阅的二参和三参，都能直接以函数式传入
+        //或者subscriber改为Observer接口
         Consumer<String> consumer = new Consumer<String>() {
             @Override
             public void accept(String s) throws Throwable {
@@ -81,5 +82,7 @@ public class RxDemo {
         externalSignal.await();
         //对应 Subscription.unsubscribe();
         subscribe1.dispose();
+
+
     }
 }

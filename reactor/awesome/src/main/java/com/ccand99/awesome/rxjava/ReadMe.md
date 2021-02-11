@@ -36,3 +36,7 @@ Observable拥有数百种流转方式和几十种初始化响应式流的工厂�
 ### Subscriber抽象类不仅实现Observer接口并且消费元素，还被用作Subscriber的实际实现基础。
 
 ### Observer与Subscriber之间的运行时关系由Subscription控制，Subscription可以检查订阅状态并在必要时取消它。
+
+Rx系列操作符弹珠图： https://rxmarbles.com/
+
+Rx系列支持自定义操作符。
