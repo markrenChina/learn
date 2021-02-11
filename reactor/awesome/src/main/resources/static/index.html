@@ -1,28 +1,19 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 <body>
-    <ul class="events"></ul>
-    <script type="application/javascript">
-        function add(message) {
-            const el = document.createElement('li')
-            el.innerHTML = message
-            document.getElementById("events").appendChild(el)
-        }
+<ul id="events"></ul>
+<script type="application/javascript">
+function add(message) {
+    const el = document.createElement("li");
+    el.innerHTML = message;
+    document.getElementById("events").appendChild(el);
+}
 
-        var eventSource = new EventSource("/temperature-stream");
-        eventSource.onmessage = e => {
-            const t = JSON.parse(e.data)
-            const fixed = Number(t.value).toFixed(2)
-            add('Temperature: ' + fixed + 'C')
-        }
-        eventSource.onopen = e => add('Connection opened')
-        eventSource.onerror = e => add('Connection closed')
-    </script>
+var eventSource = new EventSource("/temperature-stream");
+eventSource.onmessage = e => {
+    const t = JSON.parse(e.data);
+    const fixed = Number(t.value).toFixed(2);
+    add('Temperature: ' + fixed + ' C');
+}
+eventSource.onopen = e => add('Connection opened');
+eventSource.onerror = e => add('Connection closed');
+</script>
 </body>
-</html>

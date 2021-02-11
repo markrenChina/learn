@@ -1,5 +1,7 @@
 package com.ccand99.awesome.pub2sub;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
 import org.springframework.aop.interceptor.SimpleAsyncUncaughtExceptionHandler;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +18,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 @SpringBootApplication
 public class Application implements AsyncConfigurer {
 
+    private Logger log = LoggerFactory.getLogger(this.getClass());
     public static void main(String[] args) {
         SpringApplication.run(Application.class,args);
     }
@@ -27,7 +30,9 @@ public class Application implements AsyncConfigurer {
         executor.setMaxPoolSize(100);
         //如果不配置队列容量5，线程池就无法增长，因为程序转而使用SynchronousQueue
         executor.setQueueCapacity(5);
+        log.debug("配置线程池完成");
         executor.initialize();
+
         return executor;
     }
 
