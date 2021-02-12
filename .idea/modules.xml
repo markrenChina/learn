@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/gof23/gof23.iml" filepath="$PROJECT_DIR$/gof23/gof23.iml" />
+      <module fileurl="file://$PROJECT_DIR$/regularExpression/regularExpression.iml" filepath="$PROJECT_DIR$/regularExpression/regularExpression.iml" />
     </modules>
   </component>
 </project>

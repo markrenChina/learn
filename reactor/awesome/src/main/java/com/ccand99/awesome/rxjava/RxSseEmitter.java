@@ -27,7 +27,8 @@ public class RxSseEmitter extends SseEmitter {
 
             @Override
             public void onSubscribe(@NonNull Disposable d) {
-                this.disposable = d;
+                if (disposable == null)this.disposable = d;
+                else disposable.dispose();
             }
 
             @Override

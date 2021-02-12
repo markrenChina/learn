@@ -40,6 +40,7 @@
 			<artifactId>rxjava</artifactId>
 			<version>3.0.9</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>

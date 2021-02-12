@@ -1,4 +1,4 @@
-Rxjava基本概念：
+Rxjava基本思路：
 观察者模式的订阅者接口：
 ```java
 public interface Observer<T> {
@@ -33,10 +33,49 @@ public interface RxObserver<T> {
 
 Observable拥有数百种流转方式和几十种初始化响应式流的工厂方法。
 
-### Subscriber抽象类不仅实现Observer接口并且消费元素，还被用作Subscriber的实际实现基础。
+### Subscriber抽象类不仅实现Observer接口并且消费元素，还被用作Subscriber的实际实现基础。Rxjava3中用Observer或者三个参数代替
 
 ### Observer与Subscriber之间的运行时关系由Subscription控制，Subscription可以检查订阅状态并在必要时取消它。
 
 Rx系列操作符弹珠图： https://rxmarbles.com/
 
 Rx系列支持自定义操作符。
+
+附JVM社区响应式规范（org.reactivestreams）规定了4个主要接口：
+Publisher,Subscriber,Subscription,Processor
+
+以传统的发布-订阅模型命名:
+
+发布者：
+```java
+public interface Publisher<T> {
+    void subscribe(Subscriber<? super  T> subscriber);
+}
+```
+订阅者
+```java
+//与Rxjava的Observer接口几乎完全相同
+public interface Subscriber<T> {
+    //新的附加方法
+    void onSubscribe(Subscription subscription);
+    void onNext(T t);
+    void onError(Throwable t);
+    void onComplete();
+}
+```
+交互
+```java
+/**
+ * 订阅契约
+ */
+public interface Subscription {
+    //背压
+    void request(long n);
+    void cancel();
+}
+```
+处理器：
+```java
+public interface Processor<T,R> extends Subscriber<T>,Publisher<R> {
+}
+```
