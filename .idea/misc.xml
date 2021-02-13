@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/r2dbc/pom.xml" />
         <option value="$PROJECT_DIR$/taco-cloud/pom.xml" />
         <option value="$PROJECT_DIR$/reactor/awesome/pom.xml" />
+        <option value="$PROJECT_DIR$/reactor/projectReactor/pom.xml" />
       </list>
     </option>
   </component>
