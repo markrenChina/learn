@@ -23,5 +23,5 @@ public class CollectDemo {
     //repeat() 循环操作
     //defaultIfEmpty(T)  为Flux和Mono提供默认值
     //distinct() 仅传递未在流中遇到的元素。高基数会耗尽内存。可以重载
-    //Flux.distinctUntilChanged() 可以适用无限流去重
+    //Flux.distinctUntilChanged() 可以适用无限流去重（仅去重和前一个相同的元素）
 }
