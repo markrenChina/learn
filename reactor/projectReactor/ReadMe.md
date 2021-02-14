@@ -99,11 +99,20 @@ combineLatest 与zip类似 只要有一个元素发送就合并，另一个前�
 
 ### 批处理响应式序列：
 
-buffer 缓冲到容器，结果流的类型为Flux<List<T>>。不是每次都需要小请求时，可以buffer合并处理，缓冲提高效率
+1. buffer 缓冲到容器，结果流的类型为Flux<List<T>>。不是每次都需要小请求时，可以buffer合并处理，缓冲提高效率
+操作符： buffer，bufferTimeout， bufferUntil，bufferWhile，和bufferWhen。（在相应的窗口运算符打开一个窗口的地方，一个缓冲运算符创建一个新的集合并开始向其中添加元素。在窗口关闭的地方，缓冲运算符发出集合）
+   
+2. windowing 开窗 将元素加入Flux<Flux<T>> 流的元素变成另一个流
 
-windowing 开窗 将元素加入Flux<Flux<T>> 流的元素变成另一个流
+3. group 分组到Flux<GroupedFlux<K,T>>类型的流，一个key对应一个流实例
 
-group 分组到Flux<GroupedFlux<K,T>>类型的流，一个key对应一个流实例
+每组特性：
+
+始终不相交（源元素属于一个且仅属于一组）。
+
+可以包含原始序列中不同位置的元素。
+
+永远不会空着。
 
 ### flatmap系列操作符：
 
@@ -146,3 +155,4 @@ doOnEach 处理onError,onSubscribe,onNext,onComplete。
 
 materialize 和 dematerialize 提供信号流与数据流的转换。
 
+# 操作符选择官方文档： https://projectreactor.io/docs/core/release/reference/index.html#which-operator
