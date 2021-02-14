@@ -36,7 +36,7 @@ Mono<User> requestUserData(String sessionId) {
 ```
 去掉Mono.defer，会将判断执行在订阅之前。
 
-过滤响应式序列：
+### 过滤响应式序列：
 先开始一个流，停止它来自另一个流的事件响应，代码：
 ```java
 Mono<?> startCommand = ...
@@ -50,3 +50,99 @@ streamofData
 ```
 弹珠图：
 ![img.png](img.png)
+
+### 映射响应式序列：
+
+map(Function<T,R>) 操作符之后Flux<T>变成Flux<R>底层实现是cast(Class c)强制转换方法。
+
+### 收集响应式序列：
+
+collectList会将Flux处理为Mono<list> 收集操作很耗内存 如果对无限流收集或消耗所有内存。
+
+collectMap 映射为Map<k,T>
+
+collectMultimap  ->  Map<K,Collection<T>>
+
+repeat() 循环操作
+
+defaultIfEmpty(T)  为Flux和Mono提供默认值
+
+distinct() 仅传递未在流中遇到的元素。高基数会耗尽内存。可以重载
+
+Flux.distinctUntilChanged() 可以适用无限流去重（仅去重和前一个相同的元素）
+
+### 裁剪响应式序列：
+
+Flux.any(Predicate) 操作符检查是否至少有一个元素具有所需的属性。
+
+hasElements 操作符检查流中是否包含多个元素（短路逻辑）
+
+any 操作符不仅可以检查元素的相等性，还可以通过Predicate实例来检查其他属性
+
+sort 操作符可以在后台对元素排序，在完成后发出已排序的序列
+
+reduce 自定义裁剪
+
+scan能把中间结果发送到下游
+
+then、thenMany、thenEmpty，在上游完成时完成，这些操作符忽略传入元素，仅重放完成或错误信号，触发新流
+
+### 合并响应式序列：
+
+concat 通过向下游转发接收的元素来链接数据源，先消费发送第一个再消费发送第二个
+
+merge 将上游的序列数据合并到一个下游序列，与Concat不同，merge是同时的
+
+zip操作符 将上游所有源的一个元素，组合到一个输出元素中 （取最下元素）
+
+combineLatest 与zip类似 只要有一个元素发送就合并，另一个前一个值
+
+### 批处理响应式序列：
+
+buffer 缓冲到容器，结果流的类型为Flux<List<T>>。不是每次都需要小请求时，可以buffer合并处理，缓冲提高效率
+
+windowing 开窗 将元素加入Flux<Flux<T>> 流的元素变成另一个流
+
+group 分组到Flux<GroupedFlux<K,T>>类型的流，一个key对应一个流实例
+
+### flatmap系列操作符：
+
+flatmap可以理解为map+merge两个组合，先转换再返回一个新的流。
+不同的变体有： FlatMapSequential 和 concatMap
+
+flatmap和FlatMapSequential会立即订阅，concatMap会等待全部完成再执行子流订阅。
+
+concatMap保留源元素相同的顺序，FlatMapSequential会排序，flatmap不一定
+
+flatmap允许子流元素交错，FlatMapSequential和concatMap不允许。
+
+### 采样操作符
+
+sample: 不要所有传入事件就能成功操作的场景
+
+### 阻塞操作
+
+toIterable 将Flux转为阻塞Iterable
+
+toStream Flux转为阻塞Stream（Reactor3.2+ 底层调了toIterable）
+
+blockFirst 阻塞当前线程，直到上游发出第一个值或完成流为止
+
+blockLast 阻塞当前线程，直到上游发出最后一个值或完成流为止，如果onError照常抛出。
+
+toIterable，toStream能够用Queue储存先于阻塞完成的事件。
+
+### doOn(信号流)操作符
+
+doOnNext  对Flux或Mono每一个元素执行一些操作。
+
+doOnComplete和doOnError 可以处理相应事件。
+
+doOnSubscribe,doOnRequest,doOnCancel，对对应生命周期事件作出响应。
+
+doOnTerminate(Runnable) 终止时，无论如何都会被调用
+
+doOnEach 处理onError,onSubscribe,onNext,onComplete。
+
+materialize 和 dematerialize 提供信号流与数据流的转换。
+

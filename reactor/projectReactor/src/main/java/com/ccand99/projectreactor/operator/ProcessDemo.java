@@ -7,7 +7,7 @@ import java.util.LinkedList;
 public class ProcessDemo {
 
     //buffer 缓冲到容器，结果流的类型为Flux<List<T>>
-    //不是每次都需要小请求时，可以buffer缓冲提高效率
+    //不是每次都需要小请求时，可以buffer合并处理，缓冲提高效率
     static void buffer() {
         Flux.range(1 , 13)
                 .buffer(4)
