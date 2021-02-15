@@ -37,3 +37,15 @@ BUFFER（默认值），以在下游无法跟上时缓冲所有信号。（这�
 ### Using工厂方法
 
 using工厂方法能根据一个disposable创建流，在响应式中实现了try-with-resources。
+```java
+Flux<String> flux =
+Flux.using(
+        () -> disposableInstance, 
+        disposable -> Flux.just(disposable.toString()), 
+        Disposable::dispose 
+);
+```
+
+### usingWhen工厂
+
+包装响应式事务。using通过Callable实例获取资源，usingWhen通过订阅Publisher。
