@@ -10,4 +10,6 @@
 
 4. onBackPressureError 下游无法跟上，抛出错误。
 
-limitRate（n）会限制下游消费者的（总）需求。
+limitRequest（n）会限制下游消费者的（总）需求。
+
+limitRate(N)拆分下游请求，以便将它 们以较小的批次传播到上游。

@@ -4,6 +4,7 @@ import com.ccand99.projectreactor.hotvscold.CacheDemo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Flux;
+import reactor.core.scheduler.Scheduler;
 import reactor.util.function.Tuple2;
 
 import java.util.Random;
@@ -88,6 +89,7 @@ public class TransformDemo {
         Flux flux = Flux.just("")
                 .transform(transformer);
 
+
         System.out.println(counter[0]);
 
         flux.subscribe();
@@ -97,6 +99,7 @@ public class TransformDemo {
 
         //Which means that for each subscriber transformation function will be executed separately, and we may consider that kind of execution as lazy
         //transformDeferred 调用在订阅时刻，所有被订阅几次执行了几次。它将推迟应用Function到发生订阅的那一刻
+        //可以为每个订阅生成一个不同的运算符链（通过维护某种状态）
         Flux compose = Flux.just("")
                 .transformDeferred(transformer);
 
@@ -107,4 +110,6 @@ public class TransformDemo {
         compose.subscribe();
         System.out.println(counter[0]);
     }
+
+
 }
