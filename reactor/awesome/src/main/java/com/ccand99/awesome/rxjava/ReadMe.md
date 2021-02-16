@@ -74,8 +74,9 @@ public interface Subscription {
     void cancel();
 }
 ```
-处理器：
+处理器（同时实现发布和订阅）：
 ```java
 public interface Processor<T,R> extends Subscriber<T>,Publisher<R> {
 }
 ```
+通常我们需要同时实现的时Subscriber和Subscription

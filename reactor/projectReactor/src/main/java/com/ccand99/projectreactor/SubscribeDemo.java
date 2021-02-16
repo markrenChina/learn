@@ -16,6 +16,7 @@ public class SubscribeDemo {
         //dispoableDemo();
         //customSubscriber();
         baseSubscriber();
+
     }
 
     //简单的订阅无界数据（如果处理有界数据请求，建议使用订阅对象或应用限制操作符来控制）
