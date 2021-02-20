@@ -3,6 +3,17 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="project-reactor" />
+        <module name="awesome" />
+        <module name="learn-reactor" />
+        <module name="r2dbc" />
+        <module name="webclient" />
+        <module name="taco-cloud" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="projectReactor" target="11" />
