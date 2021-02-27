@@ -47,8 +47,9 @@ class WebClientRestHandler(override val serverInfo: ServerInfo) : RestHandler {
             .accept(*contextType)
         //发出请求
         val retrieve = methodInfo.body?.let {
+            //底层还是调用BodyInserters.fromProducer()
             request.body(it,methodInfo.bodyElementType).retrieve()
-        }?: request.retrieve()
+        }?: request.retrieve() // 如果简单只是处理响应头，使用exchange（）
 
         //处理异常
         retrieve.onStatus( {status -> status.value() == 404 }, { Mono.just(RuntimeException("not found"))})
