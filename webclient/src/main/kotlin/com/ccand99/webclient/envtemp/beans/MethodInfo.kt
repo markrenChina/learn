@@ -32,7 +32,7 @@ class MethodInfo{
     lateinit var returnElementType: Class<*>
 
     lateinit var returnContextType: Array<String>
-    lateinit var returnElementContextType: Array<String>
+    lateinit var sendContentType: Array<String>
 
     override fun toString(): String {
         return "MethodInfo(uri='$uri', method=$method, params=$params, body=$body)"

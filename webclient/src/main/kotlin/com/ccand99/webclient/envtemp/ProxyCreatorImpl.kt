@@ -104,25 +104,25 @@ class ProxyCreatorImpl : ProxyCreator {
                             methodInfo.uri = e.value[0]
                             methodInfo.method = HttpMethod.GET
                             methodInfo.returnContextType = e.consumes
-                            methodInfo.returnElementContextType = e.produces
+                            methodInfo.sendContentType = e.produces
                         }
                         is PostMapping -> {
                             methodInfo.uri = e.value[0]
                             methodInfo.method = HttpMethod.POST
                             methodInfo.returnContextType = e.consumes
-                            methodInfo.returnElementContextType = e.produces
+                            methodInfo.sendContentType = e.produces
                         }
                         is DeleteMapping -> {
                             methodInfo.uri = e.value[0]
                             methodInfo.method = HttpMethod.DELETE
                             methodInfo.returnContextType = e.consumes
-                            methodInfo.returnElementContextType = e.produces
+                            methodInfo.sendContentType = e.produces
                         }
                         is PutMapping -> {
                             methodInfo.uri = e.value[0]
                             methodInfo.method = HttpMethod.PUT
                             methodInfo.returnContextType = e.consumes
-                            methodInfo.returnElementContextType = e.produces
+                            methodInfo.sendContentType = e.produces
                         }
                     }
                 }
