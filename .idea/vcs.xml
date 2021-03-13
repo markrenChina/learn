@@ -2,10 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/kotlin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/learn-reactor/src/main/java/com/ccand99/learnreactor" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/learnVue/tabbar" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/reactor/src/main/java/com/ccand99/learnreactor" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../learnVue" vcs="Git" />
   </component>
 </project>
