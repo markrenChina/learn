@@ -1,6 +1,6 @@
 package com.ccand99.projectreactor.sampleWeb.functional.password.verification.server;
 
-import org.rpis5.chapters.chapter_06.functional.password.verification.client.PasswordDTO;
+import com.ccand99.projectreactor.sampleWeb.functional.password.verification.client.PasswordDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import reactor.netty.DisposableServer;
