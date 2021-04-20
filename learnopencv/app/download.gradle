@@ -1,0 +1,19 @@
+def v7aSoUrl = "http://www.ccand99.com:10086/download/opencv/jniLibs/armeabi-v7a/libopencv_java4.so"
+def v7aSoFile = "armeabi-v7a/libopencv_java4.so"
+def v8aSoUrl = "http://www.ccand99.com:10086/download/opencv/jniLibs/arm64-v8a/libopencv_java4.so"
+def v8aSoFile = "arm64-v8a/libopencv_java4.so"
+
+task downloadv7aSo(type: Download) {
+    src "${v7aSoUrl}"
+    dest project.ext.ASSET_DIR + "/${v7aSoFile}"
+    overwrite false
+}
+
+task downloadv8aSo(type: Download) {
+    src "${v8aSoUrl}"
+    dest project.ext.ASSET_DIR + "/${v8aSoFile}"
+    overwrite false
+}
+
+preBuild.dependsOn downloadv7aSo
+preBuild.dependsOn downloadv8aSo
