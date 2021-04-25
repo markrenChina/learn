@@ -1,4 +1,4 @@
-package Behavioral.mediator;
+package mediator;
 
 public class Development implements Department{
 
@@ -17,6 +17,7 @@ public class Development implements Department{
     @Override
     public void outAction() {
         System.out.println("申请研发资金");
+        //调用同事方法时通过中介者
         m.command("finacial");
     }
 }

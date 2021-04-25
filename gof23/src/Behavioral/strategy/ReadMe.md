@@ -11,3 +11,4 @@
 spring Resource接口，资源访问策略
 javax.servlet.http.HttpServlet#service()
 
+![img.png](img.png)

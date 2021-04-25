@@ -1,4 +1,4 @@
-package Behavioral.strategy;
+package strategy;
 
 public class OldCustomManyStrategy implements Strategy {
     @Override

@@ -1,4 +1,4 @@
-package Behavioral.command;
+package command;
 
 public interface Command {
     //实际业务可以设计不同的返回值

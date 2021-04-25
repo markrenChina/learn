@@ -1,4 +1,4 @@
-package Behavioral.mediator;
+package mediator;
 
 public class App {
     public static void main(String[] args) {

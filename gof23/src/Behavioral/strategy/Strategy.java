@@ -1,4 +1,4 @@
-package Behavioral.strategy;
+package strategy;
 
 public interface Strategy {
     public double getPrice(double standardPrice);

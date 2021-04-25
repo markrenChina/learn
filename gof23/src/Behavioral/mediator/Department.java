@@ -1,4 +1,4 @@
-package Behavioral.mediator;
+package mediator;
 
 /**
  * 同事类接口

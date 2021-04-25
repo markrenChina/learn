@@ -1,4 +1,4 @@
-package Behavioral.command;
+package command;
 
 public class App {
 

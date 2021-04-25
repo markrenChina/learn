@@ -1,4 +1,4 @@
-package Behavioral.mediator;
+package mediator;
 
 public class Finacial implements Department{
     private Mediator m;

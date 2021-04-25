@@ -1,4 +1,4 @@
-package Behavioral.strategy;
+package strategy;
 
 /**
  * 复杂和具体策略交互

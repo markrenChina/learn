@@ -1,4 +1,4 @@
-package Behavioral.command;
+package command;
 
 //执行者
 public class Receiver {

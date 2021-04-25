@@ -1,4 +1,4 @@
-package Behavioral.templateMethod;
+package templateMethod;
 
 public abstract class BankTemplateMethod {
 
