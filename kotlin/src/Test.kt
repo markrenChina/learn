@@ -9,4 +9,7 @@ fun main() {
         println(it.trim().toInt())
     }
 
+    var test: Int?= null
+    test = 1;
+    println(test)
 }
