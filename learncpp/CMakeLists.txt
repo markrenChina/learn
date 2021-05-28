@@ -3,4 +3,4 @@ project(cLionProject)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(cLionProject strtype4.cpp)
+add_executable(cLionProject address.cpp)

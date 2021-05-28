@@ -27,7 +27,7 @@ include_directories(jniLibs/include)
 add_library(
         native-lib
         SHARED
-        ${CMAKE_SOURCE_DIR}/native-lib.cpp )
+        ${CMAKE_SOURCE_DIR}/native-lib.cpp sg.cpp)
 add_library(
         opencv_java4
         SHARED

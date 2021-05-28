@@ -60,33 +60,33 @@ include CMakeFiles\cLionProject.dir\progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles\cLionProject.dir\flags.make
 
-CMakeFiles\cLionProject.dir\strtype4.cpp.obj: CMakeFiles\cLionProject.dir\flags.make
-CMakeFiles\cLionProject.dir\strtype4.cpp.obj: ..\strtype4.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\ideaproject\learn\learncpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cLionProject.dir/strtype4.cpp.obj"
+CMakeFiles\cLionProject.dir\address.cpp.obj: CMakeFiles\cLionProject.dir\flags.make
+CMakeFiles\cLionProject.dir\address.cpp.obj: ..\address.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\ideaproject\learn\learncpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cLionProject.dir/address.cpp.obj"
 	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\cLionProject.dir\strtype4.cpp.obj /FdCMakeFiles\cLionProject.dir\ /FS -c E:\ideaproject\learn\learncpp\strtype4.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\cLionProject.dir\address.cpp.obj /FdCMakeFiles\cLionProject.dir\ /FS -c E:\ideaproject\learn\learncpp\address.cpp
 <<
 
-CMakeFiles\cLionProject.dir\strtype4.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cLionProject.dir/strtype4.cpp.i"
-	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\cLionProject.dir\strtype4.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\ideaproject\learn\learncpp\strtype4.cpp
+CMakeFiles\cLionProject.dir\address.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cLionProject.dir/address.cpp.i"
+	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\cLionProject.dir\address.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\ideaproject\learn\learncpp\address.cpp
 <<
 
-CMakeFiles\cLionProject.dir\strtype4.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cLionProject.dir/strtype4.cpp.s"
+CMakeFiles\cLionProject.dir\address.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cLionProject.dir/address.cpp.s"
 	C:\PROGRA~2\MICROS~2\2017\BUILDT~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\cLionProject.dir\strtype4.cpp.s /c E:\ideaproject\learn\learncpp\strtype4.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\cLionProject.dir\address.cpp.s /c E:\ideaproject\learn\learncpp\address.cpp
 <<
 
 # Object files for target cLionProject
 cLionProject_OBJECTS = \
-"CMakeFiles\cLionProject.dir\strtype4.cpp.obj"
+"CMakeFiles\cLionProject.dir\address.cpp.obj"
 
 # External object files for target cLionProject
 cLionProject_EXTERNAL_OBJECTS =
 
-cLionProject.exe: CMakeFiles\cLionProject.dir\strtype4.cpp.obj
+cLionProject.exe: CMakeFiles\cLionProject.dir\address.cpp.obj
 cLionProject.exe: CMakeFiles\cLionProject.dir\build.make
 cLionProject.exe: CMakeFiles\cLionProject.dir\objects1.rsp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\ideaproject\learn\learncpp\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cLionProject.exe"

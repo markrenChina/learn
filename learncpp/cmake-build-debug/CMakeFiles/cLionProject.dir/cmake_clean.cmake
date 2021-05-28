@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/cLionProject.dir/strtype4.cpp.obj"
+  "CMakeFiles/cLionProject.dir/address.cpp.obj"
   "cLionProject.exe"
   "cLionProject.exe.manifest"
   "cLionProject.lib"

@@ -1,7 +1,7 @@
 
 
 fun main() {
-    val src = HashSet<Int>()
+    /*val src = HashSet<Int>()
     src.add(1)
     src.add(12)
     println(src)
@@ -11,5 +11,9 @@ fun main() {
 
     var test: Int?= null
     test = 1;
-    println(test)
+    println(test)*/
+
+    var calpoint = 0.0F
+    calpoint /= 1;
+    println(calpoint);
 }

@@ -126,32 +126,32 @@ cLionProject\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\cLionProject.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cLionProject.dir\build
 .PHONY : cLionProject\fast
 
-strtype4.obj: strtype4.cpp.obj
+address.obj: address.cpp.obj
 
-.PHONY : strtype4.obj
+.PHONY : address.obj
 
 # target to build an object file
-strtype4.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\cLionProject.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cLionProject.dir\strtype4.cpp.obj
-.PHONY : strtype4.cpp.obj
+address.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cLionProject.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cLionProject.dir\address.cpp.obj
+.PHONY : address.cpp.obj
 
-strtype4.i: strtype4.cpp.i
+address.i: address.cpp.i
 
-.PHONY : strtype4.i
+.PHONY : address.i
 
 # target to preprocess a source file
-strtype4.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\cLionProject.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cLionProject.dir\strtype4.cpp.i
-.PHONY : strtype4.cpp.i
+address.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cLionProject.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cLionProject.dir\address.cpp.i
+.PHONY : address.cpp.i
 
-strtype4.s: strtype4.cpp.s
+address.s: address.cpp.s
 
-.PHONY : strtype4.s
+.PHONY : address.s
 
 # target to generate assembly for a file
-strtype4.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\cLionProject.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cLionProject.dir\strtype4.cpp.s
-.PHONY : strtype4.cpp.s
+address.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cLionProject.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\cLionProject.dir\address.cpp.s
+.PHONY : address.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... cLionProject
-	@echo ... strtype4.obj
-	@echo ... strtype4.i
-	@echo ... strtype4.s
+	@echo ... address.obj
+	@echo ... address.i
+	@echo ... address.s
 .PHONY : help
 
 
