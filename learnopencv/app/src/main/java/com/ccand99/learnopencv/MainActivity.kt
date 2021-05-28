@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this,"加载分类器文件失败",Toast.LENGTH_LONG).show()
         }
+        faceDetection.sg()
     }
 
     private fun copyCascadeFile(): Boolean {

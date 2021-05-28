@@ -23,4 +23,6 @@ class FaceDetection(
      * 加载人脸识别分类器文件
      */
     external fun loadCascade(filePath: String)
+
+
 }

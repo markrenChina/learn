@@ -3,4 +3,4 @@ project(learnC)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(learnC cio.cpp)
+add_executable(learnC cpu.c)

@@ -3,6 +3,7 @@
 #include <opencv2/opencv.hpp>
 #include <android/bitmap.h>
 #include <android/log.h>
+#include <vector>
 
 #define TAG "JNI_TAG"
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__)
@@ -160,4 +161,21 @@ Java_com_ccand99_learnopencv_FaceDetection_getEqualizeImage(JNIEnv *env, jobject
     //把灰度mat 放到bitmap里面
     mat2Bitmap(env,equalize_mat,bitmap);
     return 0;
+}extern "C"
+JNIEXPORT void JNICALL
+Java_com_ccand99_learnopencv_FaceDetection_sg(JNIEnv *env, jobject thiz) {
+    vector<vector<float>> test_data(100);
+    for (int i = 0; i < 100; ++i) {
+        test_data[i].resize(1);
+        for (int j = 0; j < 1; ++j) {
+            test_data[i][j] = (float )random()/0.1;
+            LOGE("拟合前数据： %f",test_data[i][j]);
+        }
+    }
+    vector<vector<float>> res = opencv_sg((vector<vector<float>>&)test_data,5,3);
+    for (int i = 0; i < 100; ++i) {
+        for (int j = 0; j < 1; ++j) {
+            LOGE("拟合后数据： %f",res[i][j]);
+        }
+    }
 }
