@@ -48,6 +48,22 @@ namespace c9 {
      */
     void shellInsertSort(int arr[], int len);
 
+
+    /**
+     * 归并排序
+     * @tparam T 泛型
+     * @param aar
+     * @param len
+     */
+    template<class T>
+    void mergeSort(T arr[], int len);
+
+    template<class T>
+    void mergeSort_(T arr[], int left, int right);
+
+    template<class T>
+    void merge_(T arr[], int left, int mid, int right);
+
     /**
      * 算法测试方法
      */
@@ -141,6 +157,57 @@ void c9::shellInsertSort(int *arr, int len) {
         increment /= 2;
     }
 
+}
+
+template<class T>
+void c9::mergeSort(T *arr, int len) {
+    c9::mergeSort_(arr, 0, len - 1);
+}
+
+//进行递归
+template<class T>
+void c9::mergeSort_(T *arr, int left, int right) {
+    using namespace c9;
+    //递归到底
+    if (left >= right) {
+        return;
+    }
+
+    int mid = (left + right) >> 1;
+    mergeSort_(arr, left, mid);
+    mergeSort_(arr, mid + 1, right);
+    if (arr[mid] > arr[mid +1]) {
+        merge_(arr, left, mid, right);
+    }
+}
+
+//进行归并
+template<class T>
+void c9::merge_(T *arr, int left, int mid, int right) {
+    //对数组进行一次拷贝
+    T temp[right -left + 1];
+    for (int i = left; i <= right; ++i) {
+        temp[i - left] = arr[i];
+    }
+
+    int i = left;
+    int j = mid + 1;
+    int k = left;
+    for (; k <= right; ++k) {
+        if (i > mid) {
+            arr[k] = temp[j - left];
+            j++;
+        } else if (j > right) {
+            arr[k] = temp[i - left];
+            i++;
+        } else if (temp[i - left] < temp[j - left]) {
+            arr[k] = temp[i - left];
+            i++;
+        } else {
+            arr[k] = temp[j - left];
+            j++;
+        }
+    }
 }
 
 void c9::sort_array(char *sortName, void (*sort)(int *, int), int *arr, int len) {

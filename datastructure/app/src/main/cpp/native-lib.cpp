@@ -50,21 +50,23 @@ Java_com_ccand99_datastructure_MainActivity_stringFromJNI(
 
     // 测试排序算法
     int len = 20000;
-    int* arr = c9::create_random_array(len,20,20000);
+    int* arr = c9::create_random_array(len,0,30000);
     int* arr2 = copy_arr(arr,len);
     int* arr3 = copy_arr(arr,len);
     //c9::bubbleSort(arr,len);
     //c9::selectSort(arr,len);
     //c9::sort_array("bubbleSort",c9::bubbleSort,arr,len);
 
-    c9::sort_array("selectSort",c9::selectSort,arr2,len);
+    //c9::sort_array("selectSort",c9::selectSort,arr2,len);
 
     //c9::optimizeBubbleSort(arr,len);
     //c9::sort_array("optimizeBubbleSort",c9::optimizeBubbleSort,arr3,len);
     //c9::insertSort(arr,len);
     c9::sort_array("insertSort",c9::insertSort,arr,len);
-    c9::shellInsertSort(arr,len);
+    //c9::shellInsertSort(arr,len);
     c9::sort_array("shellInsertSort",c9::shellInsertSort,arr3,len);
+    //c9::mergeSort(arr,len);
+    c9::sort_array("mergeSort",c9::mergeSort,arr2,len);
 
     //print_array(arr,len);
     delete[] (arr);
