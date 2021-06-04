@@ -17,7 +17,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Example of a call to a native method
-        binding.sampleText.text = stringFromJNI()
+        binding.sampleText.text = "test"
+        //Thread {
+            stringFromJNI()
+        //}.start()
     }
 
     /**

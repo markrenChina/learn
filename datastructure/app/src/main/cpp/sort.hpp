@@ -8,6 +8,7 @@
 #include <jni.h>
 #include <time.h>
 #include <assert.h>
+#include <stdlib.h>
 #include <android/log.h>
 
 #define TAG "JNI_TAG"
@@ -35,7 +36,7 @@ namespace c9 {
     void selectSort(int arr[], int len);
 
     /**
-     * 插入排序
+     * 插入排序 （适用于接近有序）
      * @param arr
      * @param len
      */
@@ -63,6 +64,30 @@ namespace c9 {
 
     template<class T>
     void merge_(T arr[], int left, int mid, int right);
+
+    /**
+     * 快速排序
+     * @tparam T
+     * @param arr
+     * @param len
+     */
+    template<class T>
+    void quickSort(T arr[], int len);
+
+    //对数组区间[left，right]，进行快速排序
+    template<class T>
+    void quickSort_(T arr[], int left, int right);
+
+    template<class T>
+    int partition(T arr[], int left, int right);
+
+    //适用于不确定场景（大量重复）
+    template<class T>
+    void quickSort3ways(T arr[], int len);
+
+    template<class T>
+    void quickSort3ways_(T arr[], int left, int right);
+
 
     /**
      * 算法测试方法
@@ -209,6 +234,79 @@ void c9::merge_(T *arr, int left, int mid, int right) {
         }
     }
 }
+template<class T>
+void c9::quickSort(T *arr, int len) {
+    srand(time(NULL));
+    //递归到底
+    c9::quickSort_(arr,0,len-1);
+}
+template<class T>
+void c9::quickSort_(T *arr, int left, int right) {
+    if (left > right) {
+        return;
+    }
+
+    int pos = c9::partition(arr,left,right);
+    c9::quickSort_(arr,left,pos-1);
+    c9::quickSort_(arr,pos +1 ,right);
+}
+//分割
+template<class T>
+int c9::partition(T *arr, int left, int right) {
+    //优化 跟随机位比较 优化降低了乱序效率，增加了近似排序的速度
+    std::swap(arr[left],arr[rand() % (right -left+1 ) +left]);
+    int v = arr[left];
+    int pos = left;
+
+    for (int i = left; i <=right; ++i) {
+        if (v > arr[i]) {
+            pos++;
+            std::swap(arr[pos],arr[i]);
+        }
+    }
+    std::swap(arr[left],arr[pos]);
+    return pos;
+}
+
+template<class T>
+void c9::quickSort3ways(T *arr, int len) {
+    srand(time(NULL));
+    //递归到底
+    c9::quickSort3ways_(arr,0,len-1);
+}
+
+template<class T>
+void c9::quickSort3ways_(T *arr, int left, int right) {
+    if (left > right) {
+        return;
+    }
+
+    //定义
+    //优化 跟随机位比较 优化降低了乱序效率，增加了近似排序的速度
+    std::swap(arr[left],arr[rand() % (right -left+1 ) +left]);
+    int v = arr[left];
+    int lessPoint = left; //[left + 1 ,lessPoint] < v
+    int greaterPoint = right + 1; //[ greaterPoint , right ] > v
+    int i = left +1; //[lessPoint + 1 , i] = v
+    while ( greaterPoint > i ) {
+        if (arr[i] > v) {
+            greaterPoint--;
+            std::swap(arr[i],arr[greaterPoint]);
+        } else if (arr[i] < v) {
+            lessPoint++;
+            std::swap(arr[i],arr[lessPoint]);
+            i++;
+        } else {
+            i++;
+        }
+    }
+    std::swap(arr[left],arr[lessPoint]);
+    //int pos = c9::partition(arr,left,right);
+    c9::quickSort_(arr,left,lessPoint-1);
+    c9::quickSort_(arr,greaterPoint ,right);
+}
+
+
 
 void c9::sort_array(char *sortName, void (*sort)(int *, int), int *arr, int len) {
     {

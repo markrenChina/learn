@@ -4,10 +4,12 @@
 #include "LinkedList.hpp"
 #include "sort.hpp"
 #include "ArrayUtil.cpp"
+#include "ArrayStack.hpp"
 
 #define TAG "JNI_TAG"
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__)
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
+
 
 int* copy_arr(int* src,int len){
     int *new_arr= new int[len];
@@ -21,11 +23,7 @@ void print_array(int* arr,int len){
     }
 }
 
-extern "C" JNIEXPORT jstring JNICALL
-Java_com_ccand99_datastructure_MainActivity_stringFromJNI(
-        JNIEnv* env,
-        jobject /* this */) {
-
+void test_LinkedList() {
     //测试
     auto *linkedList = new LinkedList<int>;
 
@@ -47,10 +45,12 @@ Java_com_ccand99_datastructure_MainActivity_stringFromJNI(
     }
 
     delete linkedList;
+}
 
+void test_sort() {
     // 测试排序算法
-    int len = 20000;
-    int* arr = c9::create_random_array(len,0,30000);
+    int len = 2000000;
+    int* arr = c9::create_random_array(len,0,2000000);
     int* arr2 = copy_arr(arr,len);
     int* arr3 = copy_arr(arr,len);
     //c9::bubbleSort(arr,len);
@@ -62,16 +62,46 @@ Java_com_ccand99_datastructure_MainActivity_stringFromJNI(
     //c9::optimizeBubbleSort(arr,len);
     //c9::sort_array("optimizeBubbleSort",c9::optimizeBubbleSort,arr3,len);
     //c9::insertSort(arr,len);
-    c9::sort_array("insertSort",c9::insertSort,arr,len);
+    //c9::sort_array("insertSort",c9::insertSort,arr,len);
     //c9::shellInsertSort(arr,len);
-    c9::sort_array("shellInsertSort",c9::shellInsertSort,arr3,len);
+    //c9::sort_array("shellInsertSort",c9::shellInsertSort,arr3,len);
     //c9::mergeSort(arr,len);
-    c9::sort_array("mergeSort",c9::mergeSort,arr2,len);
+    //c9::sort_array("mergeSort",c9::mergeSort,arr2,len);
+    //c9::quickSort(arr,len);
+    //c9::sort_array("quickSort",c9::quickSort,arr,len);
+    //c9::quickSort3ways(arr,len);
+    //c9::sort_array("quickSort3ways",c9::quickSort3ways,arr3,len);
 
     //print_array(arr,len);
     delete[] (arr);
     delete[] (arr2);
     delete[] (arr3);
+}
+
+void test_stack() {
+    using namespace c9;
+
+    ArrayStack<int> stack;
+
+    for (int i=0;i<10;++i) {
+        stack.push(i);
+    }
+
+    while (!stack.isEmpty()) {
+        LOGI("%d",stack.pop());
+    }
+
+}
+
+extern "C" JNIEXPORT jstring JNICALL
+Java_com_ccand99_datastructure_MainActivity_stringFromJNI(
+        JNIEnv* env,
+        jobject /* this */) {
+
+    //test_LinkedList();
+    //test_sort();
+
+    test_stack();
 
     __android_log_print(ANDROID_LOG_INFO,"TAG","jni end");
     //android_
