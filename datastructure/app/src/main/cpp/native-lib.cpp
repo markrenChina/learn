@@ -5,6 +5,7 @@
 #include "sort.hpp"
 #include "ArrayUtil.cpp"
 #include "ArrayStack.hpp"
+#include "ArrayQueue.hpp"
 
 #define TAG "JNI_TAG"
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__)
@@ -93,6 +94,23 @@ void test_stack() {
 
 }
 
+void test_arrayQueue(){
+    c9::ArrayQueue<int> queue;
+
+    queue.push(1);
+    queue.push(2);
+    queue.push(3);
+    queue.push(4);
+
+    for (int i = 0 ; i< 30 ; i++){
+        queue.push(i);
+    }
+
+    while (!queue.isEmpty()){
+        LOGI("%d",queue.pop());
+    }
+}
+
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_ccand99_datastructure_MainActivity_stringFromJNI(
         JNIEnv* env,
@@ -101,7 +119,8 @@ Java_com_ccand99_datastructure_MainActivity_stringFromJNI(
     //test_LinkedList();
     //test_sort();
 
-    test_stack();
+    //test_stack();
+    test_arrayQueue();
 
     __android_log_print(ANDROID_LOG_INFO,"TAG","jni end");
     //android_

@@ -7,7 +7,7 @@ project("datastructure")
 add_library(
              native-lib
              SHARED
-             native-lib.cpp sort.hpp LinkedList.hpp)
+             native-lib.cpp sort.hpp LinkedList.hpp ArrayQueue.hpp)
 
 
 find_library( # Sets the name of the path variable.
