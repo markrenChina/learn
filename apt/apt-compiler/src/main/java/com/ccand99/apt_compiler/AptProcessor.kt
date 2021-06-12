@@ -139,6 +139,7 @@ class AptProcessor : AbstractProcessor() {
             val unbindMethodBuilder = FunSpec.builder("unbind")
                 .addAnnotation(callSuperClassName)
                 .addModifiers(KModifier.OVERRIDE)
+                .addComment("销毁")
                 .addStatement("this.target = target")
                 .addStatement("if (target == null) throw IllegalStateException(\"Binding already cleares.\")")
                 .addStatement("target = null")
