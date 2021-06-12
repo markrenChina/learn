@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'kotlin'
+    id 'kotlin-kapt'
+}
+
+java {
+    //一定要改1.8
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    //implementation files('libs/kotlinpoet-1.8.0.jar')
+    implementation project(path: ':apt-annotations')
+    //annotationProcessor "com.google.auto.service:auto-service-annotations:1.0"
+    implementation "com.google.auto.service:auto-service:1.0"
+    //implementation 'com.squareup:kotlinpoet:1.7.1'
+    kapt "com.google.auto.service:auto-service:1.0"
+    //kapt 'com.google.auto.service:auto-service-annotations:1.0'
+    implementation "com.squareup:kotlinpoet:1.8.0"
+
+}

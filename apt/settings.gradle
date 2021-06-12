@@ -1,0 +1,5 @@
+rootProject.name = "apt"
+include ':app'
+include ':apt-annotations'
+include ':apt-compiler'
+include ':apt'

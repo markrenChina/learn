@@ -59,11 +59,13 @@ fun test3() = runBlocking {
 
 
 suspend fun doSomethingUsefulOne(): Int {
+    println("do one")
     delay(1000L)
     return 13
 }
 
 suspend fun doSomethingUsefulTwo(): Int {
+    println("do two")
     delay(1000L)
     return 29
 }
@@ -83,6 +85,13 @@ fun test4() = runBlocking {
         println("The answer is ${one.await() + two.await()}")
     }
     println("Completed in $time ms")
+    val time2 = measureTimeMillis {
+        awaitAll(
+            async { doSomethingUsefulOne() },
+            async { doSomethingUsefulTwo() }
+        )
+    }
+    println("Completed in $time2 ms")
 }
 
 /**
@@ -107,9 +116,9 @@ fun test5() = runBlocking {
     }
 }
 
-fun foo(): Flow<Int> = flow{
+fun foo(): Flow<Int> = flow {
     //流构建器
-    for(i in 1..3){
+    for (i in 1..3) {
         delay(100)
         emit(i)
     }
@@ -118,7 +127,7 @@ fun foo(): Flow<Int> = flow{
 fun testFlow() = runBlocking {
     //启动并发协程验证主线程并未阻塞
     launch {
-        for (k in 1..3 ){
+        for (k in 1..3) {
             println("I'm not blocked $k")
             delay(100)
         }
@@ -126,7 +135,7 @@ fun testFlow() = runBlocking {
     foo().collect { println(it) }
 }
 
-suspend fun performRequest(request: Int):String{
+suspend fun performRequest(request: Int): String {
     delay(1000)
     return "response $request"
 }
@@ -145,10 +154,10 @@ fun testAsFlow() = runBlocking {
         .collect { response -> println(response) }
 }
 
-fun log(msg:String) = println("[${Thread.currentThread().name}] $msg")
+fun log(msg: String) = println("[${Thread.currentThread().name}] $msg")
 
-fun foo2(): Flow<Int> = flow{
-    for (i in 1..3){
+fun foo2(): Flow<Int> = flow {
+    for (i in 1..3) {
         Thread.sleep(100)
         log("Emitting $i")
         emit(i)
@@ -176,14 +185,14 @@ fun testChannel() = runBlocking {
     val channel = Channel<Int>()
     launch {
 
-        for ( x in 1..5) {
+        for (x in 1..5) {
             channel.send(x * x)
         }
         // 结束发送
         channel.close()
     }
     // 这里打印5次收到的整数
-    repeat(5) { println("print from repeat ${channel.receive()}")}
+    repeat(5) { println("print from repeat ${channel.receive()}") }
 
     //打印所有的通道元素
     for (y in channel) {
@@ -196,7 +205,7 @@ fun testChannel() = runBlocking {
  * produce 构建通道
  */
 fun CoroutineScope.produceSquares(): ReceiveChannel<Int> = produce {
-    for (x in 1..5) send(x * x )
+    for (x in 1..5) send(x * x)
 }
 
 fun testProduce() = runBlocking {
@@ -209,18 +218,18 @@ fun main() {
     //test1()
     //test2()
     //test3()
-    //test4()
+    test4()
     //test5()
     //testFlow()
     //testAsFlow()
-    testFlowBuffer()
+    //testFlowBuffer()
     //testFlowBuffer2()
     //testChannel()
     //testProduce()
 }
 
 fun testFlowBuffer2() = runBlocking {
-    val arry = arrayOf(1,2,3,4,5)
+    val arry = arrayOf(1, 2, 3, 4, 5)
     val time = measureTimeMillis {
         arry.forEach { _ ->
             delay(100)
@@ -233,7 +242,7 @@ fun testFlowBuffer2() = runBlocking {
                 delay(100)
                 emit(e)
             }
-        }.buffer().collect {  }
+        }.buffer().collect { }
     }
 
     println("Collected in $time2 ms")
