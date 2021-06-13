@@ -2,22 +2,8 @@
 buildscript {
     ext.kotlin_version = "1.5.0"
 
-    Properties properties = new Properties()
-    InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream()
-    properties.load( inputStream )
-
-    ext.usern = properties.getProperty( 'mavenusername' )
-    ext.pasw = properties.getProperty( 'mavenpassword' )
     repositories {
         mavenCentral()
-        maven {
-            credentials {
-                username "$usern"
-                password "$pasw"
-            }
-            allowInsecureProtocol = true
-            url 'http://192.168.1.253:8081/nexus/repository/maven-public/'
-        }
         //maven { url 'https://oss.sonatype.org/content/repositories/snapshots/com/squareup/kotlinpoet/'}
         google()
 
@@ -35,14 +21,6 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
-        maven {
-            credentials {
-                username "$usern"
-                password "$pasw"
-            }
-            allowInsecureProtocol = true
-            url 'http://192.168.1.253:8081/nexus/repository/maven-public/'
-        }
         //maven { url 'https://oss.sonatype.org/content/repositories/snapshots/com/squareup/kotlinpoet/'}
         google()
 

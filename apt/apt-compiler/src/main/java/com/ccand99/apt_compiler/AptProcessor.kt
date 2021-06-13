@@ -159,8 +159,6 @@ class AptProcessor : AbstractProcessor() {
                 .build()
 
             //classFile.writeTo(System.out)
-
-
             //输出的文件映射
             try {
                 mFiler?.let { filer -> classFile.writeTo(filer) }

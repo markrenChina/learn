@@ -6,6 +6,7 @@
 #include "ArrayUtil.cpp"
 #include "ArrayStack.hpp"
 #include "ArrayQueue.hpp"
+#include "binaryTree.hpp"
 
 #define TAG "JNI_TAG"
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__)
@@ -120,7 +121,8 @@ Java_com_ccand99_datastructure_MainActivity_stringFromJNI(
     //test_sort();
 
     //test_stack();
-    test_arrayQueue();
+    //test_arrayQueue();
+    c9::test_binaryTree();
 
     __android_log_print(ANDROID_LOG_INFO,"TAG","jni end");
     //android_
