@@ -7,6 +7,7 @@
 #include "ArrayStack.hpp"
 #include "ArrayQueue.hpp"
 #include "binaryTree.hpp"
+#include "PriorityQueue.hpp"
 
 #define TAG "JNI_TAG"
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__)
@@ -51,7 +52,7 @@ void test_LinkedList() {
 
 void test_sort() {
     // 测试排序算法
-    int len = 2000000;
+    int len = 200000;
     int* arr = c9::create_random_array(len,0,2000000);
     int* arr2 = copy_arr(arr,len);
     int* arr3 = copy_arr(arr,len);
@@ -68,11 +69,13 @@ void test_sort() {
     //c9::shellInsertSort(arr,len);
     //c9::sort_array("shellInsertSort",c9::shellInsertSort,arr3,len);
     //c9::mergeSort(arr,len);
-    //c9::sort_array("mergeSort",c9::mergeSort,arr2,len);
+    c9::sort_array("mergeSort",c9::mergeSort,arr2,len);
     //c9::quickSort(arr,len);
     //c9::sort_array("quickSort",c9::quickSort,arr,len);
     //c9::quickSort3ways(arr,len);
-    //c9::sort_array("quickSort3ways",c9::quickSort3ways,arr3,len);
+    c9::sort_array("quickSort3ways",c9::quickSort3ways,arr3,len);
+    //c9::headSort(arr,len);
+    c9::sort_array("headSort",c9::headSort,arr,len);
 
     //print_array(arr,len);
     delete[] (arr);
@@ -118,11 +121,12 @@ Java_com_ccand99_datastructure_MainActivity_stringFromJNI(
         jobject /* this */) {
 
     //test_LinkedList();
-    //test_sort();
+    test_sort();
 
     //test_stack();
     //test_arrayQueue();
-    c9::test_binaryTree();
+    //c9::test_binaryTree();
+    //c9::test_priorityQueue();
 
     __android_log_print(ANDROID_LOG_INFO,"TAG","jni end");
     //android_

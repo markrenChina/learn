@@ -90,6 +90,22 @@ namespace c9 {
 
 
     /**
+     * 堆排序
+     * 1. 大根堆调整
+     * 2. 第一个根最后一个进行交换，再调整为大跟堆
+     */
+    template<class T>
+     void headSort(T arr[],int len);
+
+     /**
+      * 调整大根堆
+      * @param i
+      * 优先级队列的角标从1开始，堆排序从数组0开始
+      */
+     template<class T>
+    void adjustHeap(T arr[],int len,int i) ;
+
+    /**
      * 算法测试方法
      */
     void sort_array(char *sortName, void (*sort)(int *, int), int *arr, int len);
@@ -306,7 +322,36 @@ void c9::quickSort3ways_(T *arr, int left, int right) {
     c9::quickSort_(arr,greaterPoint ,right);
 }
 
+template<class T>
+void c9::headSort(T *arr, int len){
+    //1.
+    //从最后一个不是叶子节点的节点，开始调整为大根堆 （size 2的幂次-1）
+    for (int i = len/2 -1; i>=0 ;--i){
+        c9::adjustHeap(arr,len,i);
+    }
+    //2. 第一个与最后一个进行交换，重新调整
+    for (int i = len -1; i >0 ; --i) {
+        std::swap(arr[0],arr[i]);
+        c9::adjustHeap(arr,i,0);
+    }
+}
 
+template<class T>
+void c9::adjustHeap(T *arr, int len, int i) {
+    while ( i*2+1 < len ){
+        int max = 2*i+1;
+        if (max + 1 < len && arr[max +1] > arr[max]) {
+            //代表有右孩子
+            max = max +1;
+        }
+        //最大的是自己
+        if (arr[i] > arr[max]){
+            break;
+        }
+        std::swap(arr[i],arr[max]);
+        i = max;
+    }
+}
 
 void c9::sort_array(char *sortName, void (*sort)(int *, int), int *arr, int len) {
     {
