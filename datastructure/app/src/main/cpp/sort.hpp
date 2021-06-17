@@ -189,7 +189,7 @@ void c9::shellInsertSort(int *arr, int len) {
             for (j = i + increment; j < len; j += increment) {
                 int temp = arr[j];
                 for (k = j; k > i && arr[k - increment] > temp; k -= increment) {
-                    //std::swap(arr[k],arr[k - increment]);
+                    //std::swap(arr[K],arr[K - increment]);
                     arr[k] = arr[k - increment];
                 }
                 arr[k] = temp;
@@ -301,9 +301,9 @@ void c9::quickSort3ways_(T *arr, int left, int right) {
     //优化 跟随机位比较 优化降低了乱序效率，增加了近似排序的速度
     std::swap(arr[left],arr[rand() % (right -left+1 ) +left]);
     int v = arr[left];
-    int lessPoint = left; //[left + 1 ,lessPoint] < v
-    int greaterPoint = right + 1; //[ greaterPoint , right ] > v
-    int i = left +1; //[lessPoint + 1 , i] = v
+    int lessPoint = left; //[left + 1 ,lessPoint] < V
+    int greaterPoint = right + 1; //[ greaterPoint , right ] > V
+    int i = left +1; //[lessPoint + 1 , i] = V
     while ( greaterPoint > i ) {
         if (arr[i] > v) {
             greaterPoint--;
