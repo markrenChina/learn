@@ -10,6 +10,7 @@
 #include "PriorityQueue.hpp"
 #include "binarySearchTree.hpp"
 #include "AVLTree.hpp"
+#include "map.hpp"
 
 #define TAG "JNI_TAG"
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__)
@@ -130,7 +131,8 @@ Java_com_ccand99_datastructure_MainActivity_stringFromJNI(
     //c9::test_binaryTree();
     //c9::test_priorityQueue();
     //c9_2::test_binarySearchTree<int,int>();
-    c9_3::test_AVLTree<int,int>();
+    //c9_3::test_AVLTree<int,int>();
+    c9_4::test_readBlackTree<int,int>();
 
     __android_log_print(ANDROID_LOG_INFO,"TAG","jni end");
     //android_
