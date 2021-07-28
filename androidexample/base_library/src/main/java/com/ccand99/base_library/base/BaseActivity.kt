@@ -6,15 +6,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
 
-abstract class BaseActivity<ViewModel : BaseViewModel,DataBinding: ViewDataBinding>: AppCompatActivity() {
+abstract class BaseActivity<DB: ViewDataBinding>: AppCompatActivity() {
 
     //设置布局id
     @get: LayoutRes
     abstract val layoutId: Int
 
-    protected lateinit var binding: DataBinding
-    protected val viewModel: ViewModel by viewModels<ViewModel>()
+    protected lateinit var binding: DB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

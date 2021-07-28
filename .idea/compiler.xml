@@ -10,7 +10,6 @@
         <module name="project-reactor" />
         <module name="awesome" />
         <module name="learn-reactor" />
-        <module name="kottlininspringmvc" />
         <module name="webclient" />
         <module name="kotlininspring" />
         <module name="r2dbc" />
@@ -18,6 +17,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="kottlininspringmvc" target="11" />
       <module name="projectReactor" target="11" />
       <module name="r2dbc (1) (com.ccand99)" target="11" />
       <module name="wrapper" target="1.5" />

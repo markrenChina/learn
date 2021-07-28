@@ -1,0 +1,39 @@
+<idea-plugin>
+    <id>com.ccand99.plug-in-demo</id>
+    <name>MarkrenAuto</name>
+    <version>1.0</version>
+    <vendor email="390835144@qq.com" url="http://www.ccand99.com">markrenChina</vendor>
+
+    <description>
+        <![CDATA[
+      可以自定生成不可变liveData和可变mutableLive
+    ]]>
+    </description>
+
+    <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+    </change-notes>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html for description -->
+    <idea-version since-build="173.0"/>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="AutoLiveData" class="AutoLiveData" text="markrenAuto" description="自动生成观察属性">
+            <add-to-group group-id="CodeMenu" anchor="first"/>
+            <add-to-group group-id="GenerateGroup" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="meta N" second-keystroke="alt HELP"/>
+        </action>
+    </actions>
+
+</idea-plugin>
