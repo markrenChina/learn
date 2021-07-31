@@ -3,8 +3,11 @@ package com.ccand99.base_library.dialog
 import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
+import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ListView
+import androidx.annotation.AnimRes
 import androidx.annotation.StyleRes
 import com.ccand99.base_library.R
 
@@ -18,7 +21,7 @@ class AlertDialog(
     @StyleRes themeResId: Int = 0
 ) : Dialog(context, themeResId) {
 
-    private val mAlert = AlertController(this,window)
+    private val mAlert = AlertController(this, window)
 
     companion object {
         class Builder(
@@ -43,16 +46,39 @@ class AlertDialog(
             }
 
             //设置元素
-            fun setItem(viewId: Int,text : CharSequence): Builder{
-                P.mTextMap.put(viewId,text)
+            fun setText(viewId: Int, text: CharSequence): Builder {
+                P.mTextMap.put(viewId, text)
                 return this
             }
 
             //设置点击事件
-            fun setOnClickListener(viewId: Int,listener: View.OnClickListener): Builder{
-
+            fun setOnClickListener(viewId: Int, listener: View.OnClickListener): Builder {
+                P.mClickArray.put(viewId, listener)
                 return this
             }
+
+            /**
+             * 配置一些自定义参数
+             */
+            //全屏
+            fun fullWidth() = this.also { P.mWidth = ViewGroup.LayoutParams.MATCH_PARENT }
+
+            //从底部弹出，是否有动画
+            fun fromBottom(isAnimation: Boolean = false) = this.also {
+                if (isAnimation) {
+                    P.mAnimations = R.style.dialog_from_bottom_anim
+                }
+                P.mGravity = Gravity.BOTTOM
+            }
+
+            //设置宽高
+            fun setWidthAndHeight(w: Int, h: Int) = this.also { P.mWidth = w;P.mHeight = h }
+
+            //设置默认动画
+            fun setDefaultAnimation() = this.also { P.mAnimations = R.style.dialog_from_scale_anim }
+
+            //设置自定义动画
+            fun addAnimation(@AnimRes anim: Int) = this.also { P.mAnimations = anim }
 
             /**
              * Sets a custom view to be the contents of the alert dialog.
