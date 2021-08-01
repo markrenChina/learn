@@ -7,9 +7,11 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
+import android.widget.TextView
 import androidx.annotation.AnimRes
 import androidx.annotation.StyleRes
 import com.ccand99.base_library.R
+import java.lang.ref.WeakReference
 
 /**
  * @author markrenChina
@@ -22,6 +24,17 @@ class AlertDialog(
 ) : Dialog(context, themeResId) {
 
     private val mAlert = AlertController(this, window)
+
+
+    fun setText(viewId: Int, text: CharSequence) {
+        mAlert.setText(viewId,text)
+    }
+
+    fun setOnClickListen(viewId: Int, listener: View.OnClickListener) {
+        mAlert.setOnClickListen(viewId,listener)
+    }
+
+    fun <T : View> getView(viewId: Int) : T? = mAlert.getView<T>(viewId)
 
     companion object {
         class Builder(

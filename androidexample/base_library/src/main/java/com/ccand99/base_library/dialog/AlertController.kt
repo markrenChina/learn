@@ -18,13 +18,26 @@ internal class AlertController(
     private val mDialog: AlertDialog,
     private val mWindow: Window?
 ) {
+    private var mViewHelper: DialogViewHelper?= null
+
+    fun setText(viewId: Int, text: CharSequence) {
+        mViewHelper?.setText(viewId,text)
+    }
+
+    fun setOnClickListen(viewId: Int, listener: View.OnClickListener) {
+        mViewHelper?.setOnClickListen(viewId,listener)
+    }
+
+    fun <T : View> getView(viewId: Int) : T? = mViewHelper?.getView<T>(viewId)
+
+    fun setViewHelper(viewHelper: DialogViewHelper) {
+        mViewHelper = viewHelper
+    }
 
     class AlertParams(
         val mContext: Context,
         @StyleRes val themeResId: Int
     ) {
-
-
 
         //位置
         var mGravity: Int = Gravity.CENTER
@@ -86,6 +99,8 @@ internal class AlertController(
             mClickArray.forEach { key, value ->
                 viewHelper.setOnClickListen(key,value)
             }
+
+            mAlert.setViewHelper(viewHelper)
 
             //设置自定义
             mAlert.mWindow?.also {

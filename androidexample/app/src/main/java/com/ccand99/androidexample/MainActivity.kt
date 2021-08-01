@@ -5,6 +5,7 @@ import android.widget.Toast
 import com.ccand99.androidexample.databinding.ActivityMainBinding
 import com.ccand99.base_library.base.BaseActivity
 import com.ccand99.base_library.dialog.AlertDialog
+import com.ccand99.frame_library.DefaultNavigationBar
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
@@ -16,7 +17,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     override fun initView() {
-
+        val navigationBar = DefaultNavigationBar.Companion.Builder( this,findViewById(R.id.nav_main)).builder()
     }
 
     override fun initViewModel() {
@@ -24,7 +25,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     fun openDialog(v: View){
-        AlertDialog.Companion.Builder(this)
+        val dialog = AlertDialog.Companion.Builder(this)
             .setView(R.layout.dialog_test)
             .setOnClickListener(R.id.dialog_bt_ok,View.OnClickListener {
                 Toast.makeText(this,"测试",Toast.LENGTH_LONG).show()

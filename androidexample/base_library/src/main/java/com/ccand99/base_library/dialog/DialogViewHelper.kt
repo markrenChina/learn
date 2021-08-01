@@ -42,5 +42,9 @@ internal class DialogViewHelper(val dialogView: View) {
         view?.let { it.setOnClickListener(listener) }
     }
 
-
+    /**
+     * 获取view
+     */
+    fun <T : View> getView(viewId: Int) : T? =
+        (mViews.get(viewId)?.get() ?: dialogView.findViewById<View>(viewId))?.let { it as? T }
 }
