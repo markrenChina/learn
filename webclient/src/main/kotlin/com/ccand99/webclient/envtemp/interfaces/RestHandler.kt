@@ -1,4 +1,4 @@
-package com.zhipuchina.loginserverc.envtemp.interfaces
+package com.ccand99.webclient.envtemp.interfaces
 
 import com.ccand99.webclient.envtemp.beans.MethodInfo
 import com.ccand99.webclient.envtemp.beans.ServerInfo

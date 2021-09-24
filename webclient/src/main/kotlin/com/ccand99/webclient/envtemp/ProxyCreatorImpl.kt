@@ -3,7 +3,7 @@ package com.ccand99.webclient.envtemp
 import com.ccand99.webclient.envtemp.beans.MethodInfo
 import com.ccand99.webclient.envtemp.beans.ServerInfo
 import com.zhipuchina.loginserverc.envtemp.interfaces.ProxyCreator
-import com.zhipuchina.loginserverc.envtemp.interfaces.RestHandler
+import com.ccand99.webclient.envtemp.interfaces.RestHandler
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpMethod

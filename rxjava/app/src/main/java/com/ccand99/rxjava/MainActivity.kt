@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        findViewById<>()
         Log.i(TAG, "onCreate: ")
         Observable.just("markrenChina")
             /*.subscribe(object : ObserverImpl<String>() {

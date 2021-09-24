@@ -34,10 +34,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     override fun initView() {
+        Kout().and("abc").and("Test").endl()
+        (Kout() + "abc" + "test2").endl()
         //val navigationBar = DefaultNavigationBar.Companion.Builder( this,findViewById(R.id.nav_main)).builder()
     }
 
     override fun initViewModel() {
+        val test = byteArrayOf(0)
+        test.plus(1)
         //TODO("Not yet implemented")
     }
 
