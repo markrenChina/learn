@@ -21,13 +21,13 @@ fun main() {
     println(calpoint);*/
 
     //93411726
-    /*ZipCompress.zipFile2PathAdler32(File("E:\\test\\batchNumberInfo.dat"),"E:\\test",452420698L)
+    ZipCompress.zipFile2PathAdler32(File("E:\\test\\batchNumberInfo.dat"),"E:\\test",452420698L)
 
     val bytes = File("E:\\test\\batchNumberInfo.dat").readBytes()
     val checksumEngine = Adler32()
     checksumEngine.update(bytes, 0, bytes.size)
     val checksum = checksumEngine.value
-    println(checksum)*/
+    println(checksum)
 
     //ZipCompress.zipFile2Path2(File("D:\\temp\\testzip\\src.zip"),"D:\\temp\\testzip\\src")
     //val str = File("D:/temp/testzip/src/test/test.txt")
