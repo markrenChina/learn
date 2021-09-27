@@ -3,4 +3,4 @@ project(cLionProject)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(cLionProject c11/maximum.cpp)
+add_executable(cLionProject c11/tuple.cpp)
