@@ -32,6 +32,8 @@ int main () {
     file_it(fout,objective,eps,LIMIT);
     file_it(cout,objective,eps,LIMIT);
     cout << "Done.\n";
+    //书上没有关闭资源
+    fout.close();
     return 0;
 }
 
