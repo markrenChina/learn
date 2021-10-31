@@ -13,7 +13,10 @@
 #define TAG "JNI_TAG"
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__)
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
-
+/**
+ * 大根堆 底层容器是数组array
+ *
+ */
 namespace c9{
     template <class T>
     class PriorityQueue {

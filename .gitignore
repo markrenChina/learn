@@ -3,7 +3,6 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-kotlin/target/
 
 ### STS ###
 .apt_generated
@@ -34,3 +33,8 @@ build/
 ### VS Code ###
 .vscode/
 /kotlin/out/*
+
+**/.idea/
+**/.mvn/
+**/cmake-build-debug/
+**/target/

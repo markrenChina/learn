@@ -1,4 +1,4 @@
-package leetcode
+package main.java.leetcode
 
 class Solution {
     fun twoSum(nums: IntArray, target: Int): IntArray? {
