@@ -34,7 +34,10 @@ build/
 .vscode/
 /kotlin/out/*
 
-**/.idea/
-**/.mvn/
-**/cmake-build-debug/
-**/target/
+!**/.idea/
+!**/.mvn/
+!**/cmake-build-debug/
+!**/target/
+!**/**/.idea
+!**/**/.cxx
+!**/**/cmake-build-debug/
