@@ -3,4 +3,4 @@ project(leetcode)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(leetcode longestCommonPrefix.cpp)
+add_executable(leetcode distributeCandies_575.cpp)

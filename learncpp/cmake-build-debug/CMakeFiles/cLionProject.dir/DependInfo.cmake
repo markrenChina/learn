@@ -4,9 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "E:/ideaproject/learn/learncpp/address.cpp" "E:/ideaproject/learn/learncpp/cmake-build-debug/CMakeFiles/cLionProject.dir/address.cpp.obj"
+  "/Users/workspace/IdeaProjects/learn/learncpp/c11/tup.cpp" "/Users/workspace/IdeaProjects/learn/learncpp/cmake-build-debug/CMakeFiles/cLionProject.dir/c11/tup.cpp.o"
+  "/Users/workspace/IdeaProjects/learn/learncpp/c11/tuple.cpp" "/Users/workspace/IdeaProjects/learn/learncpp/cmake-build-debug/CMakeFiles/cLionProject.dir/c11/tuple.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "MSVC")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/cLionProject.dir/address.cpp.obj"
-  "cLionProject.exe"
-  "cLionProject.exe.manifest"
-  "cLionProject.lib"
+  "CMakeFiles/cLionProject.dir/c11/tup.cpp.o"
+  "CMakeFiles/cLionProject.dir/c11/tuple.cpp.o"
+  "cLionProject"
   "cLionProject.pdb"
 )
 
