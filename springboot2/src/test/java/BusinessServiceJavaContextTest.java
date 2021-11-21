@@ -1,6 +1,6 @@
-import di.BusinessService;
-import di.SpringContext;
-import di.User;
+import com.ccand99.di.BusinessService;
+import com.ccand99.di.SpringContext;
+import com.ccand99.domain.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

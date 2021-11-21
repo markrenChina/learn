@@ -1,4 +1,6 @@
-package di;
+package com.ccand99.di;
+import com.ccand99.domain.User;
+
 import java.util.List;
 
 

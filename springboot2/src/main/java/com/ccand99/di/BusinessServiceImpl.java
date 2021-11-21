@@ -1,5 +1,6 @@
-package di;
+package com.ccand99.di;
 
+import com.ccand99.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

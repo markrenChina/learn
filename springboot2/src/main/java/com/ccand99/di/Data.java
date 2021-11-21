@@ -1,4 +1,4 @@
-package di;
+package com.ccand99.di;
 
 public class Data {
   private int value;

@@ -1,5 +1,6 @@
-package di;
+package com.ccand99.di;
 
+import com.ccand99.domain.User;
 import org.springframework.stereotype.Repository;
 import java.util.Arrays;
 import java.util.List;

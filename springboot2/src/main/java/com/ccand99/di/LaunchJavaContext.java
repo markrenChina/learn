@@ -1,5 +1,6 @@
-package di;
+package com.ccand99.di;
 
+import com.ccand99.domain.User;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

@@ -1,8 +1,8 @@
-import di.BusinessService;
-import di.BusinessServiceImpl;
-import di.DataService;
-import di.Data;
-import di.User;
+import com.ccand99.di.BusinessService;
+import com.ccand99.di.BusinessServiceImpl;
+import com.ccand99.di.DataService;
+import com.ccand99.di.Data;
+import com.ccand99.domain.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.BDDMockito;
