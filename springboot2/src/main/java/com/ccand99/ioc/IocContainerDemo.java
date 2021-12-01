@@ -9,7 +9,7 @@ public class IocContainerDemo {
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
         XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
         //xml 配置文件的ClassPath路径
-        String location = "classpath:/META-INF/dependency-injection-context.xml";
+        String location = "classpath:/META-INF/bean-injection-context.xml";
         //加载配置
         int beanDefinitionCount = reader.loadBeanDefinitions(location);
         System.out.println(beanDefinitionCount);

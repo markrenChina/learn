@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
-import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -27,7 +26,7 @@ public class BusinessServiceMockitoTest {
 
   @Test
   public void testCalculateSum() {
-    BDDMockito.given(dataService.retrieveData(Matchers.any(User.class)))
+    BDDMockito.given(dataService.retrieveData(BDDMockito.any(User.class)))
     .willReturn(Arrays.asList(new Data(10), new Data(15), new Data(25)));
 
     long sum = service.calculateSum(DUMMY_USER);

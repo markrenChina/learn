@@ -44,6 +44,13 @@
             <version>1.2.17</version>
         </dependency>
 
+        <!--引入java11删除的注解-->
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
         <!-- Unit Test Dependencies -->
         <dependency>
             <groupId>junit</groupId>
@@ -60,7 +67,7 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>2.15.0</version>
+            <version>4.0.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

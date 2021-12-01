@@ -10,7 +10,7 @@ import org.springframework.core.env.Environment;
 public class DependencyInjectionDemo {
 
     public static void main(String[] args) {
-        BeanFactory beanFactory = new ClassPathXmlApplicationContext("classpath:/META-INF/dependency-injection-context.xml");
+        BeanFactory beanFactory = new ClassPathXmlApplicationContext("classpath:/META-INF/bean-injection-context.xml");
         //来源1 ，自定义的bean
         UserRepository userRepository = beanFactory.getBean("userRepository",UserRepository.class);
         //System.out.println(userRepository.getUsers());

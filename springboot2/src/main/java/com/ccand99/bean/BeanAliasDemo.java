@@ -8,7 +8,7 @@ public class BeanAliasDemo {
 
     public static void main(String[] args) {
         //启动Spring应用上下文
-        BeanFactory beanFactory = new ClassPathXmlApplicationContext("classpath:/META-INF/dependency-definitions-context.xml");
+        BeanFactory beanFactory = new ClassPathXmlApplicationContext("classpath:/META-INF/bean-definitions-context.xml");
         //通过别名获取bean
         User aliasUser = beanFactory.getBean("alias-user",User.class);
         User user = beanFactory.getBean("user",User.class);
