@@ -5,6 +5,12 @@ public class User {
 
   private int age;
 
+  /**
+   * 必须要有空的
+   */
+  public User() {
+  }
+
   public User(String id) {
     super();
     this.id = id;
@@ -12,6 +18,10 @@ public class User {
 
   public String getId() {
     return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public int getAge() {

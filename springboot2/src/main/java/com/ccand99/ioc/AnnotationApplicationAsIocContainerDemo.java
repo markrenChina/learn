@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 public class AnnotationApplicationAsIocContainerDemo {
 
     public static void main(String[] args) {
+        //创建BeanFactory容器
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         //将当前类 作为配置类
         applicationContext.register(AnnotationApplicationAsIocContainerDemo.class);
