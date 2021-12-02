@@ -19,6 +19,8 @@ repositories {
 dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test:1.6.0")
     implementation(compose.desktop.currentOs)
+    implementation("org.eclipse.swt:org.eclipse.swt.win32.win32.x86_64:4.3")
+    //implementation("")
 }
 
 tasks.test {
