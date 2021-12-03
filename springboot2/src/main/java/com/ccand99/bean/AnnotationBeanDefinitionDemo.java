@@ -24,7 +24,7 @@ public class AnnotationBeanDefinitionDemo {
         //注册 Cofiguration Class （配置类）
         //applicationContext.register(Config.class);
         applicationContext.register(AnnotationBeanDefinitionDemo.class);
-        //通过BeanDefinition 注册API实现
+        //通过 BeanDefinition 注册API实现
         //命名
         registerUserBeanDefinition(applicationContext,"mark");
         //非命名
