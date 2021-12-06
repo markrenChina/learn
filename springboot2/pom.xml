@@ -37,6 +37,13 @@
             <version>${spring.version}</version>
         </dependency>-->
 
+        <!--<dependency>
+            <groupId>org.geekbang</groupId>
+            <artifactId>ioc-container-overview</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>-->
+
         <!--日志工具-->
         <dependency>
             <groupId>log4j</groupId>
