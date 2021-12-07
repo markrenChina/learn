@@ -12,7 +12,7 @@ public class User {
     }
 
     public User(String id) {
-        super();
+        this();
         this.id = id;
     }
 
@@ -41,6 +41,8 @@ public class User {
     }
 
     public static User createUser(){
-        return new User("method");
+        User user = new User();
+        user.id ="method";
+        return user;
     }
 }
