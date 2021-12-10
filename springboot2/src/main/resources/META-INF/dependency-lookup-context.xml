@@ -12,9 +12,13 @@
         <property name="address" value="123"/>
     </bean>
 
+    <bean id="userHolder" class="com.ccand99.injection.UserHolder"/>
+
     <bean id="objectFactory"
           class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
         <property name="targetBeanName" value="user"/>
     </bean>
+
+    <bean class="com.ccand99.lifecycle.MyInstantiationAwareBeanPostProcessor"/>
 
 </beans>
