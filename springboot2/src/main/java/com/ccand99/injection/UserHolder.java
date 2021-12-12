@@ -2,15 +2,21 @@ package com.ccand99.injection;
 
 import com.ccand99.domain.User;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanClassLoaderAware;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.*;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 /**
  * user 的 holder类
  */
-public class UserHolder implements BeanNameAware, BeanClassLoaderAware, BeanFactoryAware {
+public class UserHolder implements
+        BeanNameAware,
+        BeanClassLoaderAware,
+        BeanFactoryAware,
+        InitializingBean,
+SmartInitializingSingleton,
+DisposableBean{
 
     private User user;
 
@@ -42,6 +48,26 @@ public class UserHolder implements BeanNameAware, BeanClassLoaderAware, BeanFact
     private ClassLoader classLoader;
     private BeanFactory beanFactory;
     private String beanName;
+
+    /**
+     * 依赖于注解驱动
+     */
+    @PostConstruct
+    public void initializing(){
+        this.beanName = "@PostConstruct";
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        this.beanName = "InitializingBean";
+    }
+
+    /**
+     * 自定义初始化方法
+     */
+    public void init(){
+        this.beanName = "init";
+    }
     /**
      * 接口注入
      */
@@ -67,5 +93,31 @@ public class UserHolder implements BeanNameAware, BeanClassLoaderAware, BeanFact
                 ", number=" + number +
                 ", beanName='" + beanName + '\'' +
                 '}';
+    }
+
+    @Override
+    public void afterSingletonsInstantiated() {
+        this.beanName = "afterSingletonsInstantiated";
+    }
+
+    public String getBeanName() {
+        return beanName;
+    }
+
+    @PreDestroy
+    public void preDestroy(){
+        System.out.println("preDestroy");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("destroy");
+    }
+
+    /**
+     * 自定义销毁方法
+     */
+    public void doDestory(){
+        System.out.println("doDestory");
     }
 }

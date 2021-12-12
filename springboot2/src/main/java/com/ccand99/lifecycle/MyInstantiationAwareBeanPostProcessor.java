@@ -50,4 +50,27 @@ class MyInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPos
         }
         return null;
     }
+
+    /**
+     * 实例初始化之前
+     */
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        if (ObjectUtils.nullSafeEquals("userHolder", beanName) && UserHolder.class.equals(bean.getClass())) {
+            UserHolder userHolder = (UserHolder) bean;
+            userHolder.setBeanName("postProcessBeforeInitialization");
+            //return userHolder;
+        }
+        return null;
+    }
+
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        if (ObjectUtils.nullSafeEquals("userHolder", beanName) && UserHolder.class.equals(bean.getClass())) {
+            UserHolder userHolder = (UserHolder) bean;
+            userHolder.setBeanName("postProcessAfterInitialization");
+            //return userHolder;
+        }
+        return null;
+    }
 }
