@@ -1,5 +1,5 @@
+import utils.ZipCompress
 import java.io.File
-import java.io.FileInputStream
 import java.util.concurrent.ThreadLocalRandom
 import java.util.zip.Adler32
 
@@ -29,7 +29,7 @@ fun main() {
     val checksum = checksumEngine.value
     println(checksum)
 
-    //ZipCompress.zipFile2Path2(File("D:\\temp\\testzip\\src.zip"),"D:\\temp\\testzip\\src")
+    //utils.ZipCompress.zipFile2Path2(File("D:\\temp\\testzip\\src.zip"),"D:\\temp\\testzip\\src")
     //val str = File("D:/temp/testzip/src/test/test.txt")
     //createParentDir(str)
 
