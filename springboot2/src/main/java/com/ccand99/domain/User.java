@@ -5,6 +5,8 @@ public class User {
 
     private int age;
 
+    private City city;
+
     /**
      * 必须要有空的
      */
@@ -32,17 +34,26 @@ public class User {
         this.age = age;
     }
 
+    public static User createUser(){
+        User user = new User();
+        user.id ="method";
+        return user;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id='" + id + '\'' +
                 ", age=" + age +
+                ", city=" + city +
                 '}';
-    }
-
-    public static User createUser(){
-        User user = new User();
-        user.id ="method";
-        return user;
     }
 }

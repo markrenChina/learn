@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:users="http://www.ccand99.com/schema/users"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.ccand99.com/schema/users
+       http://www.ccand99.com/schema/users.xsd">
+
+    <!--<bean id="user" class="com.ccand99.domain.User">
+        <constructor-arg value="default"/>
+        <property name="age" value="1"/>
+    </bean>-->
+    
+    <users:user id="mark" age="18" city="TAIZHOU"/>
+
+</beans>
