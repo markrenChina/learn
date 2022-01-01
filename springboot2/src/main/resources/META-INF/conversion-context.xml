@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       https://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <!--声明ConversionServiceFactoryBean-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <bean class="com.ccand99.conversion.PropertiesToStringConverter"/>
+        </property>
+    </bean>
+
+    <!--java.util.Properties-->
+    <util:properties id="context">
+        <prop key="id">xmlContext2</prop>
+    </util:properties>
+
+    <bean id="user" class="com.ccand99.domain.User">
+        <property name="id" value="xml"/>
+        <property name="context">
+            <value>
+                id = xmlContext
+            </value>
+        </property>
+        <property name="contextAsText" ref="context"/> <!-- Properties -> String -->
+    </bean>
+</beans>
