@@ -12,7 +12,6 @@
         <module>webclient</module>
         <module>r2dbc</module>
         <module>webclient</module>
-        <module>projectReactor</module>
     </modules>
 
     <properties>
