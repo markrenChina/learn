@@ -21,13 +21,13 @@ public class InetAddressTest {
             InetAddress localHostAddress = InetAddress.getLocalHost();
             System.out.println(localHostAddress);
         }
-        InetAddress[] addresses = InetAddress.getAllByName("www.baidu.com");
+        InetAddress[] addresses = InetAddress.getAllByName("cg.zhipu-china.com");
         System.out.println(addresses.length);
         for (InetAddress address : addresses) {
             System.out.println(address.getHostAddress());
         }
         while (true) {
-            InetAddress address = InetAddress.getByName("www.baidu.com");
+            InetAddress address = InetAddress.getByName("cg.zhipu-china.com");
             System.out.println(address.getHostAddress());
             Thread.sleep(3000);
         }

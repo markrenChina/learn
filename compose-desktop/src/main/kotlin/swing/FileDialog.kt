@@ -1,14 +1,15 @@
 package swing
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.foundation.layout.size
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.awt.SwingPanel
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.AwtWindow
 import androidx.compose.ui.window.application
 import java.awt.FileDialog
 import java.awt.Frame
+import javax.swing.JFileChooser
 
 fun main() = application {
     var isOpen by remember { mutableStateOf(true) }
@@ -29,14 +30,18 @@ private fun FileDialog(
     onCloseRequest: (result: String?) -> Unit
 ) = AwtWindow(
     create = {
-        object : FileDialog(parent, "Choose a file", LOAD) {
+        object : FileDialog(parent, "Choose a file", SAVE) {
+
             override fun setVisible(value: Boolean) {
                 super.setVisible(value)
                 if (value) {
-                    onCloseRequest(file)
+                    //onCloseRequest(file)
+                    onCloseRequest(directory)
                 }
             }
         }
     },
     dispose = FileDialog::dispose
 )
+
+
