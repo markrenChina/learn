@@ -6,7 +6,11 @@
 
     <groupId>org.ccand99</groupId>
     <artifactId>springboot2</artifactId>
+    <packaging>pom</packaging>
     <version>1.0.0</version>
+    <modules>
+        <module>aop</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
