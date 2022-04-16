@@ -41,3 +41,6 @@ build/
 !**/**/.idea
 !**/**/.cxx
 !**/**/cmake-build-debug/
+.gradle
+.idea
+cmake-build-debug
