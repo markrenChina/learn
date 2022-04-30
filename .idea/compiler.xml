@@ -3,21 +3,8 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="project-reactor" />
-        <module name="awesome" />
-        <module name="learn-reactor" />
-        <module name="webclient" />
-        <module name="kotlininspring" />
-        <module name="r2dbc" />
-        <module name="taco-cloud" />
-      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="kottlininspringmvc" target="11" />
       <module name="projectReactor" target="11" />
       <module name="r2dbc (1) (com.ccand99)" target="11" />
       <module name="wrapper" target="1.5" />
@@ -26,8 +13,6 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="awesome" options="-parameters" />
-      <module name="kotlininspring" options="-parameters" />
-      <module name="kottlininspringmvc" options="-parameters" />
       <module name="learn-reactor" options="-parameters" />
       <module name="project-reactor" options="-parameters" />
       <module name="r2dbc" options="-parameters" />
