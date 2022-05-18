@@ -1,19 +1,18 @@
 package sun.net.www.protocol.x;
 
 import org.springframework.util.StreamUtils;
-import org.springframework.util.StringUtils;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLStreamHandler;
 import java.net.URLStreamHandlerFactory;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 /**
- * 测试示例 jdk1.8 可用 11不可用
- * 11 中URL#getURLStreamHandler 只有jrt和file 会进入 sun.net.www.protocol的兜底
+ * //测试示例 jdk1.8 可用 11不可用
+ * //11 中URL#getURLStreamHandler 只有jrt和file 会进入 sun.net.www.protocol的兜底
+ * {@link java.lang.ClassLoader#getResourceAsStream(java.lang.String) } getResource
+ * 在idea中的根目录为 ./target/classes
  */
 public class HandlerTest {
 

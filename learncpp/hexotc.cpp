@@ -3,7 +3,7 @@
 //
 #include <iostream>
 
-int main7() {
+int main() {
     using namespace std;
     int chest = 42;
     int waist = 0x42;
@@ -17,7 +17,7 @@ int main7() {
     int chest2 = 42;
     int waist2 = chest2;
     int inseam2 = waist2;
-
+    cout << showbase;
     cout << "Monsieur cuts a striking figure!" << endl;
     cout << "chest2 = " << chest2 << " (decimal for 42)" << endl;
     cout << hex;

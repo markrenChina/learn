@@ -1,5 +1,6 @@
 import utils.ZipCompress
 import java.io.File
+import java.net.URL
 import java.util.concurrent.ThreadLocalRandom
 import java.util.zip.Adler32
 
@@ -20,6 +21,9 @@ fun main() {
     calpoint /= 1;
     println(calpoint);*/
 
+    val url = URL("https://www.baidu.com")
+    val inputs = url.openStream()
+    println(inputs.readBytes())
     //93411726
     ZipCompress.zipFile2PathAdler32(File("E:\\test\\batchNumberInfo.dat"),"E:\\test",452420698L)
 
