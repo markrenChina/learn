@@ -3,4 +3,5 @@ project(cpp-server)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(cpp-server )
+#add_executable(chapter1)
+add_subdirectory(chapter3/SharedMutex)
