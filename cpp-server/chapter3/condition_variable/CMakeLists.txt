@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16.3)
-project(shared-mutex)
+project(condition-variable)
 
 set(CMAKE_CXX_STANDARD 17)
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
@@ -8,4 +8,4 @@ if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
     add_definitions(-DUNICODE -D_UNICODE)
 endif()
 
-add_executable(shared-mutex SharedMutex.cpp test.cpp)
+add_executable(condition-variable condition-variable.cpp)

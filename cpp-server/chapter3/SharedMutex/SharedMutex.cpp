@@ -6,7 +6,7 @@
 
 SharedMutex::SharedMutex() {
 #ifdef WIN32
-    ::InitializeSRWLock(&m_SRWLock)
+    ::InitializeSRWLock(&m_SRWLock);
 #else
     ::pthread_rwlock_init(&m_SRWLock, nullptr);
 #endif
