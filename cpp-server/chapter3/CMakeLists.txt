@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.16.3)
+project(chapter3)
+
+add_subdirectory(SharedMutex)
+add_subdirectory(condition)
+add_subdirectory(mutex)
+add_subdirectory(c17sharedMutex)
+add_subdirectory(condition_variable)
+add_subdirectory(makesurethreadgroup)
+add_subdirectory(nptl)
+add_subdirectory(pool)
+add_subdirectory(fiber)

@@ -196,6 +196,7 @@ class ViewDBFrame extends JFrame {
 
    private void readDatabaseProperties() throws IOException {
       props = new Properties();
+      System.out.println(Paths.get("").toAbsolutePath());
       try (InputStream in = Files.newInputStream(Paths.get("database.properties"))) {
          props.load(in);
       }
