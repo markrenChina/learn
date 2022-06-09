@@ -1,6 +1,7 @@
+/*
 import java.io.Closeable
 import java.io.InputStream
-import java.lang.ref.Cleaner
+//import java.lang.ref.Cleaner
 
 //An autocloseable class using a cleaner as a safety net
 class Room(numJunkPiles: Int): AutoCloseable {
@@ -39,4 +40,4 @@ class Room2 : Closeable {
 fun main() {
     val room = Room(7)
     val room2 = Room2().use {  }
-}
+}*/

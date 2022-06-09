@@ -51,8 +51,8 @@ fun 测试三目运算执行函数后返回值(bol: Boolean):String{
     }
 }
 
-public inline infix fun Boolean.trueToDo(block: ()->Unit): Unit?= if (this) block() else null
+public inline infix fun Boolean.trueToDo( noinline block: ()->Unit): Unit?= if (this) block() else null
 
-public inline infix fun<T> Boolean.trueDoBack(block: ()-> T): T?= if (this) block() else null
+public inline infix fun<T> Boolean.trueDoBack(crossinline block: ()-> T): T?= if (this) block() else null
 
 public infix fun<T> Boolean.isTrue(var1 : T): T?= if (this) var1 else null

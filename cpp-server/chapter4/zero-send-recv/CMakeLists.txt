@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16.3)
-project(tcp-demo)
+project(zero-send-recv)
 
 set(CMAKE_CXX_STANDARD 17)
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
@@ -11,6 +11,7 @@ else()
     #链接pthread
     #target_link_libraries(tcp-demo pthread)
 endif()
-add_executable(server server.cpp )
-add_executable(client client.cpp )
+add_executable(zero-recv-server  server_recv_zero_bytes.cpp)
+add_executable(zero-send-client  nonblocking_client_send_zero_bytes.cpp)
+
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../bin)
