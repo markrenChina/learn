@@ -3,4 +3,4 @@ project(leetcode)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(leetcode maxDepth559.cpp)
+add_executable(leetcode diffWaysToCompute241.cpp)

@@ -43,6 +43,7 @@ namespace c9 {
 
     template<class E>
     ArrayQueue<E>::ArrayQueue(int size) {
+        //size 乱传保证长度是2的幂次
         int real_size = size;
         if (real_size >= 4) {
             real_size |= real_size >> 1;

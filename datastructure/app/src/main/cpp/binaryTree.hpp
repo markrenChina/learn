@@ -9,6 +9,7 @@
 #include <queue>
 #include <algorithm>
 #include <cmath>
+#include <memory>
 
 #define TAG "JNI_TAG"
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__)
@@ -60,11 +61,10 @@ namespace c9 {
         int rightDepth = getDepthTree(pNode->right);
 
         return std::abs(leftDepth - rightDepth) <= 1
-        && isBalanceTree(pNode->left)
-        && isBalanceTree(pNode->right);
+               && isBalanceTree(pNode->left)
+               && isBalanceTree(pNode->right);
     }
 
-    
 
     /**
      * 前序遍历
@@ -122,7 +122,7 @@ namespace c9 {
         if (pNode == nullptr) {
             return;
         }
-        std::queue < TreeNode<T> * > nodeQ;
+        std::queue<TreeNode<T> *> nodeQ;
         nodeQ.push(pNode);
         while (!nodeQ.empty()) {
             TreeNode<T> *front = nodeQ.front();
@@ -135,6 +135,39 @@ namespace c9 {
                 nodeQ.push(front->right);
             }
         }
+    }
+
+    /**
+     * 序列化二叉树
+     */
+    void seralizeTree(TreeNode<char> *pNode, std::string *str) {
+        if (pNode == nullptr) {
+            str->append("#");
+            return;
+        }
+
+        //首先输出根节点
+        str->append(std::string(1, pNode->data));
+        //左节点
+        seralizeTree(pNode->left, str);
+        //右节点
+        seralizeTree(pNode->right, str);
+    }
+
+    /**
+     * 反序列号
+     * c-style
+     */
+    TreeNode<char>* deserializeTree(char *str) {
+        if (*str == '#') {
+            str += 1;
+            return nullptr;
+        }
+        TreeNode<char> *node = new TreeNode<char>(*str);
+        str+=1;
+        node->left = deserializeTree(str);
+        node->right = deserializeTree(str);
+        return node;
     }
 
     void test_binaryTree() {

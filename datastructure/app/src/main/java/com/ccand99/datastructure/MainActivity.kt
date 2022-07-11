@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.TextView
 import com.ccand99.datastructure.databinding.ActivityMainBinding
 import java.util.*
+import kotlin.collections.HashMap
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        HashMap
         // Example of a call to a native method
         binding.sampleText.text = "test"
         //Thread {

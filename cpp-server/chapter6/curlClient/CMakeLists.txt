@@ -1,0 +1,26 @@
+cmake_minimum_required(VERSION 3.16.3)
+project(curlClient)
+
+set(CMAKE_CXX_STANDARD 17)
+#AUX_SOURCE_DIRECTORY(${PROJECT_SOURCE_DIR} SRC_LIST)
+LINK_DIRECTORIES(${PROJECT_SOURCE_DIR})
+
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+    #需要把dll拷贝直exe同级目录下
+    add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
+    add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
+    #add_definitions(-DUNICODE -D_UNICODE)
+    add_executable(curlClient CurlClient.cpp)
+    target_link_libraries(curlClient libcurl)
+else()
+    set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -g -Wno-deprecated -Werror -Wno-unused-function")
+    #链接pthread
+    #target_link_libraries(tcp-demo pthread)
+    add_executable(curlClient CurlClient.cpp)
+    target_link_libraries(curlClient curl)
+endif()
+#add_executable(curlClient CurlClient.cpp)
+#target_link_libraries(curlClient libcurl)
+#add_library(curlClient CurlClient.cpp)
+#add_executable(test-curl test.cpp)
+#target_link_libraries(test-curl curlClient)

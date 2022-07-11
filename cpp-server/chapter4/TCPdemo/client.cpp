@@ -9,9 +9,15 @@
 #include <iostream>
 #include <cstring>
 
-#define SERVER_ADDRESS "127.0.0.1"
-#define SERVER_PORT     3000
-#define SEND_DATA       "helloworld"
+#define SERVER_ADDRESS "192.168.1.253"
+#define SERVER_PORT     20103
+static const char * SEND_DATA = "GET /sys/getTime HTTP/1.1\r\n"
+                        "User-Agent: PostmanRuntime/7.29.0\r\n"
+                        "Accept: */*\r\n"
+                        "Postman-Token: bfd1d096-58dc-4e0b-854a-55deeb081246\r\n"
+                        "Host: 192.168.1.253:20103\r\n"
+                        "Accept-Encoding: gzip, deflate, br\r\n"
+                        "Connection: keep-alive\r\n\r\n";
 
 int main(int argc, char* argv[])
 {
@@ -53,11 +59,11 @@ int main(int argc, char* argv[])
 		return -1;
 	}
 	
-	std::cout << "send data successfully, data: " << SEND_DATA << std::endl;
+	std::cout << "send data successfully, data: "<< std::endl << SEND_DATA << std::endl;
 	
 	//4. 从服务器收取数据
-	char recvBuf[32] = {0};
-	ret = recv(clientfd, recvBuf, 32, 0);
+	char recvBuf[1024] = {0};
+	ret = recv(clientfd, recvBuf, 1024, 0);
 	if (ret > 0) 
 	{
 		std::cout << "recv data successfully, data: " << recvBuf << std::endl;

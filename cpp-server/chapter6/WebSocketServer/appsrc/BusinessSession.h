@@ -1,0 +1,38 @@
+/***************************************************************
+ * ??????? :
+ * ?????   : BusinessSession.h
+ * ????     : zhangyl
+ * ?·Ú     : 1.0.0.0
+ * ???????? : 2019.03.29
+ * ????     :
+ ***************************************************************/
+
+#ifndef __BUSINESS_SESSION_H__
+#define __BUSINESS_SESSION_H__
+
+#include <string>
+
+#include "../websocketsrc/MyWebSocketSession.h"
+
+/** 
+ * ??¡Â????????????????BusinessSession?????????????????
+ * BussinessSession???????????WebSocketSession????????????????
+ */
+class BusinessSession : public MyWebSocketSession
+{
+public:
+    BusinessSession(std::shared_ptr<TcpConnection>& conn);
+    virtual ~BusinessSession() = default;
+
+public:
+    void onConnect() override;
+    bool onMessage(const std::string& strClientMsg) override;
+ 
+private:
+    void sendWelcomeMsg();
+
+private:
+    static std::string          m_strWelcomeMsg;        //??????
+};
+
+#endif //!__BUSINESS_SESSION_H__
