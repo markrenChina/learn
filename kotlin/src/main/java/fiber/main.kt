@@ -1,6 +1,5 @@
 package fiber
 
-import demo.times
 import kotlinx.coroutines.*
 
 fun  log(obj : Any ) = println("[${Thread.currentThread().name}] --- $obj")
@@ -25,6 +24,6 @@ fun main() = runBlocking{
         5+5
     }
     println(res)
-    println("*" * 20)
+    //println("*" * 20)
 
     }

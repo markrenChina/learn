@@ -5,15 +5,11 @@
 #ifndef DATASTRUCTURE_SORT_HPP
 #define DATASTRUCTURE_SORT_HPP
 
-#include <jni.h>
-#include <time.h>
-#include <assert.h>
-#include <stdlib.h>
-#include <android/log.h>
-
-#define TAG "JNI_TAG"
-#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__)
-#define LOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
+#include <ctime>
+#include <cassert>
+#include <cstdlib>
+#include <iostream>
+#include <algorithm>
 
 namespace c9 {
     /**
@@ -108,7 +104,33 @@ namespace c9 {
     /**
      * 算法测试方法
      */
-    void sort_array(char *sortName, void (*sort)(int *, int), int *arr, int len);
+    void sort_array(char *sortName, void (*Sort)(int *, int), int *arr, int len);
+
+    /**
+     * 验证是否有序
+     */
+    template<class T>
+    void verificationSort(T arr[],int len){
+        if (len <= 20){
+            for (int i = 0; i < len; ++i) {
+                std::cout << arr[i] << " ";
+            }
+            std::cout << std::endl;
+        }
+        for (int i = 0; i < len -1; ++i) {
+            if (arr[i] > arr[i+1]){
+                std::cout << i <<"'s " << arr[i] << " > "
+                << i + 1 <<"'s " << arr[i+1] << std::endl;
+            }
+        }
+    }
+//    template<class T>
+//    void verificationSort(__wrap_iter<Tp *> first, __wrap_iter<Tp *> last,void (*verification)()){
+//        for (int i = 0; i < len -1; ++i) {
+//
+//            assert(arr[i] < arr[i+1]);
+//        }
+//    }
 }
 
 void c9::bubbleSort(int *arr, int len) {
@@ -333,7 +355,6 @@ void c9::headSort(T *arr, int len){
     for (int i = len -1; i >0 ; --i) {
         std::swap(arr[0],arr[i]);
         c9::adjustHeap(arr,i,0);
-        //c9::adjustHeap(arr,0,i);
     }
 }
 
@@ -354,18 +375,21 @@ void c9::adjustHeap(T *arr, int len, int i) {
     }
 }
 
-void c9::sort_array(char *sortName, void (*sort)(int *, int), int *arr, int len) {
+void c9::sort_array(char *sortName, void (*Sort)(int *, int), int *arr, int len) {
     {
         size_t start_time = clock();
-        sort(arr, len);
+        Sort(arr, len);
         size_t end_time = clock();
         double time = (double) (end_time - start_time) / CLOCKS_PER_SEC;
-        LOGD("%s的执行时间%lf", sortName, time);
+        std::cout <<sortName <<"的执行时间%lf: " << time << std::endl;
         //检查数组是否排序
-        for (int i = 0; i < len - 1; ++i) {
-            assert(arr[i] <= arr[i + 1]);
-        }
+//        for (int i = 0; i < len - 1; ++i) {
+//            assert(arr[i] <= arr[i + 1]);
+//        }
+        verificationSort(arr,len);
     }
+
+
 }
 
 

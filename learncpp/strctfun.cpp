@@ -58,6 +58,7 @@ void rect_to_polar(const rect* pxy, polar *pda){
 }
 
 //show polar coordinates, converting angle to degrees
+//传递指针可以提升性能
 void show_polar(polar dapos){
     using namespace std;
     const double Rad_to_deg = 57.29577951;

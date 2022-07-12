@@ -3,7 +3,7 @@ project(cpp-primer)
 
 set(CMAKE_CXX_STANDARD 14)
 
-AUX_SOURCE_DIRECTORY(${PROJECT_SOURCE_DIR}/15/test SRC_LIST)
+#AUX_SOURCE_DIRECTORY(${PROJECT_SOURCE_DIR}/15/test SRC_LIST)
 
 
-add_executable(cpp-primer ${SRC_LIST})
+add_executable(cpp-primer 19/rtti.cpp)

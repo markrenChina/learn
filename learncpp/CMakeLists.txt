@@ -3,4 +3,5 @@ project(cLionProject)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(cLionProject c11/tuple.cpp c11/tup.cpp)
+#add_executable(cLionProject hexotc.cpp)
+add_executable(cLionProject sort/test-sort.cpp)

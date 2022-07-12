@@ -5,14 +5,10 @@
 #ifndef DATASTRUCTURE_PRIORITYQUEUE_HPP
 #define DATASTRUCTURE_PRIORITYQUEUE_HPP
 
-#include <jni.h>
+
 #include <queue>
-#include <android/log.h>
+#include <iostream>
 
-
-#define TAG "JNI_TAG"
-#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__)
-#define LOGI(...) __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
 /**
  * 大根堆 底层容器是数组array
  *
@@ -52,8 +48,9 @@ namespace c9{
 
 
         void buildHeap(){
-            for (int i = count/2; i>=1;--i){
-                shifDown(i);
+            for (int i = count/2-1; i>=0;--i){
+//              shifDown(i);
+                c9::adjustHeap(array,count,i);
             }
         }
 
@@ -63,7 +60,8 @@ namespace c9{
             array = new T[count];
         }
 
-        PriorityQueue(int count, T *array) : count(count), array(array) {
+        PriorityQueue( T *array,int count) : count(count), array(array),index(count){
+            //has bug max miss
             buildHeap();
         }
 
@@ -95,8 +93,20 @@ namespace c9{
             pQueue.push(rand() % 100);
         }
         while (!pQueue.isEmpty()){
-            LOGI("%d",pQueue.pop());
+            //LOGI("%d",pQueue.pop());
+            std::cout << pQueue.pop() << " ";
         }
+        std::cout << std::endl;
+    }
+
+    template <class T>
+    void test_priorityQueue2(T* arr, int len){
+        PriorityQueue<T> pQueue(arr,len);
+        while (!pQueue.isEmpty()){
+            //LOGI("%d",pQueue.pop());
+            std::cout << pQueue.pop() << " ";
+        }
+        std::cout << std::endl;
     }
 }
 
