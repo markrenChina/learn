@@ -91,6 +91,7 @@ namespace c9_2 {
 
         //查找当前树的最大值 一直往右找，找到空的前一个
         TreeNode<K, V> *maximum(TreeNode<K, V> *pNode) {
+            //不断往右找，直到找到右子树为空节点
             if (pNode->right == nullptr) {
                 return pNode;
             }
