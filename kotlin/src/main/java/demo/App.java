@@ -23,10 +23,13 @@ public final class App {
         // f(y) = ay + b
         // f(y) = af(x) + b
 
-        IntStream.range(1,10).forEach(System.out::println);
-        Set set = new HashSet<Integer>();
-        set.add(1);
-        set.add("1223");
+//        IntStream.range(1,10).forEach(System.out::println);
+//        Set set = new HashSet<Integer>();
+//        set.add(1);
+//        set.add("1223");
+        String s ;
+        s = "world";
+        System.out.println(s == "world");
     }
 
     public <T> void add(T i){

@@ -16,6 +16,8 @@
 #include <algorithm>
 #include <cstring>
 #include <cstdint>
+#include <sstream>
+#include <array>
 
 using namespace std;
 
