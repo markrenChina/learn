@@ -3,4 +3,4 @@ project(leetcode)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(leetcode  leetcode-utils.hpp coding_interviews/lengthOfLongestSubstring48.cpp)
+add_executable(leetcode  leetcode-utils.hpp coding_interviews/minNumber45.cpp)

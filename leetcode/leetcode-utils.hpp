@@ -22,4 +22,15 @@
 using namespace std;
 
 
+template<typename TreeNode,typename T>
+TreeNode* DeserializeBinaryTree(vector<T> vec,T nullTag,size_t pos = 0){
+    if ( pos >= vec.size() || vec[pos] == nullTag){
+        return nullptr;
+    }
+    auto* tmp = new TreeNode(vec[pos]);
+    tmp->left = DeserializeBinaryTree<TreeNode,T>(vec,nullTag,pos * 2 + 1);
+    tmp->right = DeserializeBinaryTree<TreeNode,T>(vec,nullTag,pos * 2 + 2);
+    return tmp;
+}
+
 #endif //LEETCODE_LEETCODE_UTILS_HPP
