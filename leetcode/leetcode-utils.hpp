@@ -18,6 +18,7 @@
 #include <cstdint>
 #include <sstream>
 #include <array>
+#include <functional>
 
 using namespace std;
 
