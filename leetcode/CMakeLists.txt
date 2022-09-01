@@ -3,4 +3,8 @@ project(leetcode)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(leetcode  leetcode-utils.hpp coding_interviews/spiralOrder29.cpp)
+add_executable(leetcode
+        leetcode-utils.hpp
+        binaryTree.h
+        validateStackSequences946.cpp
+        )
